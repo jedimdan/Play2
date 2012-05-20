@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PhotoDareGroupListViewController : UITableViewController
+@interface PhotoDareGroupListViewController : UITableViewController <UIImagePickerControllerDelegate>
 
 @property (strong, nonatomic) NSArray *dareGroups;
+- (IBAction)photoButtonPressed:(id)sender;
 
 @end
