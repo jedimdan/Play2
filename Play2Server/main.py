@@ -37,6 +37,7 @@ class Play2BannerHandler(webapp2.RequestHandler):
 		]
 
 		self.response.headers['Content-Type'] = 'application/json'
+		self.response.headers['Cache-Control'] = 'public, max-age=1200'
 		self.response.out.write(json.dumps(banners, indent=4))
 
 class MapAnnotation(db.Model):

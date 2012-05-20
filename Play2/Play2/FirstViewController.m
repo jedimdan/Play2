@@ -16,8 +16,6 @@
 @synthesize loadingSpinner;
 @synthesize countdownWebView;
 @synthesize loadingLabel;
-@synthesize countdownTimer;
-@synthesize timer;
 
 - (void)didReceiveMemoryWarning
 {
@@ -34,7 +32,7 @@
     queue = [[NSOperationQueue alloc] init];
     
     bannerScrollView.delegate = self;
-    [self performSelectorInBackground:@selector(downloadBannerImages) withObject:nil];
+    [self performSelectorInBackground:@selector(determineDisplayCachedImagesOrNot) withObject:nil];
     
     NSString *countdownHTMLPath = [[NSBundle mainBundle] pathForResource:@"index2" ofType:@"html"];
     [self.countdownWebView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:countdownHTMLPath]]];
@@ -43,23 +41,51 @@
     
 }
 
+- (void)determineDisplayCachedImagesOrNot
+{
+    NSUserDefaults *currentDefaults = [NSUserDefaults standardUserDefaults];
+    NSData *cachedBannerImages = [currentDefaults objectForKey:@"cachedBannerImages"];
+    NSDate *cachedDate = (NSDate *)[currentDefaults objectForKey:@"cachedBannerDate"];
+    
+    if ((cachedBannerImages) && ([[NSDate date] timeIntervalSinceDate:cachedDate] < 3600))
+    {
+        NSLog(@"INFO: Cache present, and still fresh. Using cached banners for now.");
+        NSArray *oldImages = [NSKeyedUnarchiver unarchiveObjectWithData:cachedBannerImages];
+        if (oldImages)
+        {
+            [self performSelectorOnMainThread:@selector(displayBannerImages:) withObject:oldImages waitUntilDone:NO];
+        }
+    }
+    
+    else
+    {
+        NSLog(@"INFO: No cache, or cache is stale. Redownloading banners.");
+        [self downloadBannerImages];
+    }
+}
+
 - (void)downloadBannerImages
 {
     NSError *error;
+    NSURLResponse *response;
     NSString *jsonURI = [serverURL stringByAppendingPathComponent:@"banners"];
     
+    NSURLRequest *jsonRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:jsonURI] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60];
     
+    NSData *jsonResponse = [NSURLConnection sendSynchronousRequest:jsonRequest returningResponse:&response error:&error];
     
-    NSData *jsonResponse = [NSData dataWithContentsOfURL:[NSURL URLWithString:jsonURI]];
-    
-    //need to do error checking here
+    if (error)
+    {
+        NSLog(@"Error downloading banner JSON: %@", [error localizedDescription]);
+        return;
+    }
     
     NSArray *bannerURLs = (NSArray *)[NSJSONSerialization JSONObjectWithData:jsonResponse options:0 error:&error];
     
     if (error)
     {
-        //handle it
-        NSLog(@"Error: %@", error);
+        NSLog(@"Error parsing banner JSON: %@", [error localizedDescription]);
+        return;
     }
     
     __block NSMutableArray *bannerImages = [NSMutableArray arrayWithCapacity:[bannerURLs count]];
@@ -70,18 +96,38 @@
     
     [bannerURLs enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:^{
-            UIImage *banner = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:obj]]];
-            [bannerImages replaceObjectAtIndex:idx withObject:banner];
+            NSURLRequest *bannerRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:obj] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60];
+            
+            NSURLResponse *bannerResponse;
+            NSError *bannerError;
+            NSData *bannerImageData = [NSURLConnection sendSynchronousRequest:bannerRequest returningResponse:&bannerResponse error:&bannerError];
+            
+            if (bannerError)
+            {
+                //handle it
+                NSLog(@"Error: %@", bannerError);
+            }
+            
+            else {
+                UIImage *banner = [UIImage imageWithData:bannerImageData];
+                [bannerImages replaceObjectAtIndex:idx withObject:banner];
+            }
         }];
         
         [queue addOperation:op];
     }];
     
     [queue waitUntilAllOperationsAreFinished];
+    [self performSelectorInBackground:@selector(archiveBannerImagesArray:) withObject:bannerImages];
     [self performSelectorOnMainThread:@selector(displayBannerImages:) withObject:bannerImages waitUntilDone:NO];
     
 }
 
+- (void)archiveBannerImagesArray: (NSArray *)bannerImages
+{
+    [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:bannerImages] forKey:@"cachedBannerImages"];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"cachedBannerDate"];
+}
 
 - (void)displayBannerImages: (NSArray *)bannerImages
 {

@@ -28,17 +28,28 @@
     MKCoordinateRegion tanjongBeach = MKCoordinateRegionMake(CLLocationCoordinate2DMake(1.244989, 103.825366), MKCoordinateSpanMake(0.004, 0.004));
 	beachMapView.region = tanjongBeach;
     
-//    //create two sample annotations
-//    Play2Place *samplePlace1 = [[Play2Place alloc] initWithCoordinate:CLLocationCoordinate2DMake(1.244989, 103.825366) title:@"Wet Games Station" subtitle:@"Get ready for a splashing good time!"];
-//    
-//    Play2Place *samplePlace2 = [[Play2Place alloc] initWithCoordinate:CLLocationCoordinate2DMake(1.246051, 103.824116) title:@"First Aid" subtitle:@"Medic on standby!"];
-//    
-//    [beachMapView addAnnotation:samplePlace1];
-//    [beachMapView addAnnotation:samplePlace2];
+    [self performSelectorInBackground:@selector(displayCachedAnnotations) withObject:nil];
+}
+
+- (void)displayCachedAnnotations
+{
+    NSUserDefaults *currentDefaults = [NSUserDefaults standardUserDefaults];
+    NSData *cachedAnnotations = [currentDefaults objectForKey:@"cachedAnnotations"];
+    NSDate *cachedDate = (NSDate *)[currentDefaults objectForKey:@"cachedAnnotationsDate"];
     
-    [self performSelectorInBackground:@selector(downloadAnnotations) withObject:nil];
+    if ((cachedAnnotations) && ([[NSDate date] timeIntervalSinceDate:cachedDate] < 3600))
+    {
+        NSLog(@"INFO: Cache present, and still fresh. Using cached annotations.");
+        NSArray *oldAnnotationsDict = [NSKeyedUnarchiver unarchiveObjectWithData:cachedAnnotations];
+        [self loadAnnotations:oldAnnotationsDict];
+    }
     
-    
+
+    else
+    {
+        NSLog(@"INFO: Cache not present, or stale. Redownloading annotations.");
+        [self downloadAnnotations];
+    }
 }
 
 - (void)downloadAnnotations
@@ -58,6 +69,15 @@
         NSLog(@"Error: %@", error);
     }
     
+    [self loadAnnotations:annotationsDict];
+    
+    //cache the annotations
+    [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:annotationsDict] forKey:@"cachedAnnotations"];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"cachedAnnotationsDate"];
+}
+
+- (void)loadAnnotations: (NSArray *)annotationsDict
+{
     __block NSMutableArray *annotations = [[NSMutableArray alloc] initWithCapacity:[annotationsDict count]];
     [annotationsDict enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSDictionary *annotationDict = (NSDictionary *)obj;

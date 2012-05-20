@@ -16,5 +16,6 @@
     NSOperationQueue *queue;
 }
 @property (weak, nonatomic) IBOutlet MKMapView *beachMapView;
-
+- (void)loadAnnotations: (NSArray *)annotationsDict;
+- (void)downloadAnnotations;
 @end
