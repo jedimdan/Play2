@@ -11,6 +11,7 @@
 		9560D50E1568E95B00E2C4AD /* img in Resources */ = {isa = PBXBuildFile; fileRef = 9560D50A1568E95B00E2C4AD /* img */; };
 		9560D50F1568E95B00E2C4AD /* index2.html in Resources */ = {isa = PBXBuildFile; fileRef = 9560D50B1568E95B00E2C4AD /* index2.html */; };
 		9560D5101568E95B00E2C4AD /* js in Resources */ = {isa = PBXBuildFile; fileRef = 9560D50C1568E95B00E2C4AD /* js */; };
+		9560D5161568F61300E2C4AD /* 184-warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 9560D5151568F61300E2C4AD /* 184-warning.png */; };
 		95EE4AEB15527A85006EF619 /* play2_banner_420px.png in Resources */ = {isa = PBXBuildFile; fileRef = 95EE4AEA15527A85006EF619 /* play2_banner_420px.png */; };
 		95EE4AED15527C10006EF619 /* banner_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 95EE4AEC15527C10006EF619 /* banner_placeholder.png */; };
 		95EE4AF4155283DA006EF619 /* CountdownTimerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EE4AF3155283DA006EF619 /* CountdownTimerController.m */; };
@@ -63,6 +64,7 @@
 		9560D50A1568E95B00E2C4AD /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
 		9560D50B1568E95B00E2C4AD /* index2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index2.html; sourceTree = "<group>"; };
 		9560D50C1568E95B00E2C4AD /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
+		9560D5151568F61300E2C4AD /* 184-warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "184-warning.png"; sourceTree = "<group>"; };
 		95EE4AEA15527A85006EF619 /* play2_banner_420px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play2_banner_420px.png; sourceTree = "<group>"; };
 		95EE4AEC15527C10006EF619 /* banner_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banner_placeholder.png; sourceTree = "<group>"; };
 		95EE4AF2155283DA006EF619 /* CountdownTimerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownTimerController.h; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				95EE4B3D15537C23006EF619 /* Sample Images */,
+				9560D5151568F61300E2C4AD /* 184-warning.png */,
 				95EE4B0B1552DED1006EF619 /* 103-map.png */,
 				95EE4B0D1552DF4F006EF619 /* 129-golf.png */,
 				95EE4B0F1552DF6A006EF619 /* 86-camera.png */,
@@ -376,6 +379,7 @@
 				9560D50E1568E95B00E2C4AD /* img in Resources */,
 				9560D50F1568E95B00E2C4AD /* index2.html in Resources */,
 				9560D5101568E95B00E2C4AD /* js in Resources */,
+				9560D5161568F61300E2C4AD /* 184-warning.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

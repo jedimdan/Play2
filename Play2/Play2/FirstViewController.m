@@ -36,7 +36,6 @@
     bannerScrollView.delegate = self;
     [self performSelectorInBackground:@selector(downloadBannerImages) withObject:nil];
     
-    //self.countdownTimer = [[CountdownTimerController alloc] initWithLabel:self.countdownTimerLabel];
     NSString *countdownHTMLPath = [[NSBundle mainBundle] pathForResource:@"index2" ofType:@"html"];
     [self.countdownWebView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:countdownHTMLPath]]];
     
@@ -48,7 +47,12 @@
 {
     NSError *error;
     NSString *jsonURI = [serverURL stringByAppendingPathComponent:@"banners"];
+    
+    
+    
     NSData *jsonResponse = [NSData dataWithContentsOfURL:[NSURL URLWithString:jsonURI]];
+    
+    //need to do error checking here
     
     NSArray *bannerURLs = (NSArray *)[NSJSONSerialization JSONObjectWithData:jsonResponse options:0 error:&error];
     
