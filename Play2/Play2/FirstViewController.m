@@ -14,6 +14,7 @@
 @synthesize bannerPageControl;
 @synthesize countdownTimerLabel;
 @synthesize loadingSpinner;
+@synthesize countdownWebView;
 @synthesize loadingLabel;
 @synthesize countdownTimer;
 @synthesize timer;
@@ -35,7 +36,12 @@
     bannerScrollView.delegate = self;
     [self performSelectorInBackground:@selector(downloadBannerImages) withObject:nil];
     
-    self.countdownTimer = [[CountdownTimerController alloc] initWithLabel:self.countdownTimerLabel];
+    //self.countdownTimer = [[CountdownTimerController alloc] initWithLabel:self.countdownTimerLabel];
+    NSString *countdownHTMLPath = [[NSBundle mainBundle] pathForResource:@"index2" ofType:@"html"];
+    [self.countdownWebView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:countdownHTMLPath]]];
+    
+    self.countdownWebView.scalesPageToFit = YES;
+    
 }
 
 - (void)downloadBannerImages
@@ -115,6 +121,7 @@
     [self setCountdownTimerLabel:nil];
     [self setLoadingSpinner:nil];
     [self setLoadingLabel:nil];
+    [self setCountdownWebView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

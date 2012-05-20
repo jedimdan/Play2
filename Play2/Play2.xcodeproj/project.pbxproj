@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9560D50D1568E95B00E2C4AD /* css in Resources */ = {isa = PBXBuildFile; fileRef = 9560D5091568E95B00E2C4AD /* css */; };
+		9560D50E1568E95B00E2C4AD /* img in Resources */ = {isa = PBXBuildFile; fileRef = 9560D50A1568E95B00E2C4AD /* img */; };
+		9560D50F1568E95B00E2C4AD /* index2.html in Resources */ = {isa = PBXBuildFile; fileRef = 9560D50B1568E95B00E2C4AD /* index2.html */; };
+		9560D5101568E95B00E2C4AD /* js in Resources */ = {isa = PBXBuildFile; fileRef = 9560D50C1568E95B00E2C4AD /* js */; };
 		95EE4AEB15527A85006EF619 /* play2_banner_420px.png in Resources */ = {isa = PBXBuildFile; fileRef = 95EE4AEA15527A85006EF619 /* play2_banner_420px.png */; };
 		95EE4AED15527C10006EF619 /* banner_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 95EE4AEC15527C10006EF619 /* banner_placeholder.png */; };
 		95EE4AF4155283DA006EF619 /* CountdownTimerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EE4AF3155283DA006EF619 /* CountdownTimerController.m */; };
@@ -55,6 +59,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9560D5091568E95B00E2C4AD /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
+		9560D50A1568E95B00E2C4AD /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
+		9560D50B1568E95B00E2C4AD /* index2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index2.html; sourceTree = "<group>"; };
+		9560D50C1568E95B00E2C4AD /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
 		95EE4AEA15527A85006EF619 /* play2_banner_420px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play2_banner_420px.png; sourceTree = "<group>"; };
 		95EE4AEC15527C10006EF619 /* banner_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banner_placeholder.png; sourceTree = "<group>"; };
 		95EE4AF2155283DA006EF619 /* CountdownTimerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownTimerController.h; sourceTree = "<group>"; };
@@ -132,6 +140,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9560D5071568E91900E2C4AD /* Countdown Timer */ = {
+			isa = PBXGroup;
+			children = (
+				9560D5091568E95B00E2C4AD /* css */,
+				9560D50A1568E95B00E2C4AD /* img */,
+				9560D50B1568E95B00E2C4AD /* index2.html */,
+				9560D50C1568E95B00E2C4AD /* js */,
+			);
+			name = "Countdown Timer";
+			sourceTree = "<group>";
+		};
 		95EE4A96155273DE006EF619 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +237,7 @@
 		95F7479415521E4900F70A49 /* Play2 */ = {
 			isa = PBXGroup;
 			children = (
+				9560D5071568E91900E2C4AD /* Countdown Timer */,
 				95EE4B2A155371C7006EF619 /* Models */,
 				95EE4B29155371A9006EF619 /* TableViewCells */,
 				95F7479D15521E4900F70A49 /* AppDelegate.h */,
@@ -352,6 +372,10 @@
 				95EE4B3A15537C1D006EF619 /* IMG_1419.JPG in Resources */,
 				95EE4B3B15537C1D006EF619 /* IMG_1425.JPG in Resources */,
 				95EE4B3C15537C1D006EF619 /* IMG_1428.JPG in Resources */,
+				9560D50D1568E95B00E2C4AD /* css in Resources */,
+				9560D50E1568E95B00E2C4AD /* img in Resources */,
+				9560D50F1568E95B00E2C4AD /* index2.html in Resources */,
+				9560D5101568E95B00E2C4AD /* js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

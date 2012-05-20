@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIPageControl *bannerPageControl;
 @property (weak, nonatomic) IBOutlet UILabel *countdownTimerLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingSpinner;
+@property (weak, nonatomic) IBOutlet UIWebView *countdownWebView;
 @property (weak, nonatomic) IBOutlet UILabel *loadingLabel;
 @property (strong, nonatomic) CountdownTimerController *countdownTimer;
 @property (strong, nonatomic) NSTimer *timer;

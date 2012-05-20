@@ -26,20 +26,6 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" id="zjs-nx-Hg5">
-                                <rect key="frame" x="0.0" y="318" width="320" height="93"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" id="F2s-dZ-EPO">
-                                        <rect key="frame" x="20" y="36" width="280" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
                             <scrollView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="gvc-DN-Ouc">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="288"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -48,6 +34,11 @@
                                 <rect key="frame" x="141" y="286" width="38" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </pageControl>
+                            <webView userInteractionEnabled="NO" contentMode="scaleToFill" id="vKD-ga-hh3">
+                                <rect key="frame" x="0.0" y="319" width="320" height="92"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -55,7 +46,7 @@
                     <connections>
                         <outlet property="bannerPageControl" destination="af0-nk-8Ya" id="xoa-uL-lgE"/>
                         <outlet property="bannerScrollView" destination="gvc-DN-Ouc" id="dOj-C5-NAw"/>
-                        <outlet property="countdownTimerLabel" destination="F2s-dZ-EPO" id="jf3-wr-cJ6"/>
+                        <outlet property="countdownWebView" destination="vKD-ga-hh3" id="lx6-Hd-oeS"/>
                         <outlet property="loadingLabel" destination="Igu-s2-EOg" id="LBY-Ib-pxE"/>
                         <outlet property="loadingSpinner" destination="uxW-kD-cFv" id="gY3-rc-KLn"/>
                     </connections>
@@ -268,6 +259,7 @@
                 <relationship kind="outlet" name="bannerPageControl" candidateClass="UIPageControl"/>
                 <relationship kind="outlet" name="bannerScrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="countdownTimerLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="countdownWebView" candidateClass="UIWebView"/>
                 <relationship kind="outlet" name="loadingLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="loadingSpinner" candidateClass="UIActivityIndicatorView"/>
             </relationships>
