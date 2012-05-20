@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		95EE4AEB15527A85006EF619 /* play2_banner_420px.png in Resources */ = {isa = PBXBuildFile; fileRef = 95EE4AEA15527A85006EF619 /* play2_banner_420px.png */; };
+		95EE4AED15527C10006EF619 /* banner_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 95EE4AEC15527C10006EF619 /* banner_placeholder.png */; };
+		95EE4AF4155283DA006EF619 /* CountdownTimerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EE4AF3155283DA006EF619 /* CountdownTimerController.m */; };
+		95EE4AF81552D288006EF619 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95EE4AF71552D288006EF619 /* MapKit.framework */; };
+		95EE4AFA1552D466006EF619 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95EE4AF91552D466006EF619 /* CoreLocation.framework */; };
+		95EE4AFD1552D652006EF619 /* Play2Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EE4AFC1552D652006EF619 /* Play2Place.m */; };
+		95EE4B0C1552DED1006EF619 /* 103-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 95EE4B0B1552DED1006EF619 /* 103-map.png */; };
+		95EE4B0E1552DF4F006EF619 /* 129-golf.png in Resources */ = {isa = PBXBuildFile; fileRef = 95EE4B0D1552DF4F006EF619 /* 129-golf.png */; };
+		95EE4B101552DF6A006EF619 /* 86-camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 95EE4B0F1552DF6A006EF619 /* 86-camera.png */; };
+		95EE4B121552DF7C006EF619 /* 117-todo.png in Resources */ = {isa = PBXBuildFile; fileRef = 95EE4B111552DF7C006EF619 /* 117-todo.png */; };
+		95EE4B151552E50C006EF619 /* DGTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EE4B141552E50B006EF619 /* DGTableViewCell.m */; };
+		95EE4B181552E5F8006EF619 /* PhotoDareGroupListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EE4B171552E5F8006EF619 /* PhotoDareGroupListViewController.m */; };
+		95EE4B1B1552E698006EF619 /* DareGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EE4B1A1552E698006EF619 /* DareGroup.m */; };
+		95EE4B2D15537221006EF619 /* PhotoDareGroupAlbumViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EE4B2C15537221006EF619 /* PhotoDareGroupAlbumViewCell.m */; };
+		95EE4B301553796A006EF619 /* PhotoDareGroupAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EE4B2F15537969006EF619 /* PhotoDareGroupAlbumViewController.m */; };
+		95EE4B3715537C1D006EF619 /* IMG_1339.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 95EE4B3115537C1D006EF619 /* IMG_1339.JPG */; };
+		95EE4B3815537C1D006EF619 /* IMG_1357.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 95EE4B3215537C1D006EF619 /* IMG_1357.JPG */; };
+		95EE4B3915537C1D006EF619 /* IMG_1359.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95EE4B3315537C1D006EF619 /* IMG_1359.jpg */; };
+		95EE4B3A15537C1D006EF619 /* IMG_1419.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 95EE4B3415537C1D006EF619 /* IMG_1419.JPG */; };
+		95EE4B3B15537C1D006EF619 /* IMG_1425.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 95EE4B3515537C1D006EF619 /* IMG_1425.JPG */; };
+		95EE4B3C15537C1D006EF619 /* IMG_1428.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 95EE4B3615537C1D006EF619 /* IMG_1428.JPG */; };
+		95F7478F15521E4900F70A49 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F7478E15521E4900F70A49 /* UIKit.framework */; };
+		95F7479115521E4900F70A49 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F7479015521E4900F70A49 /* Foundation.framework */; };
+		95F7479315521E4900F70A49 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F7479215521E4900F70A49 /* CoreGraphics.framework */; };
+		95F7479915521E4900F70A49 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 95F7479715521E4900F70A49 /* InfoPlist.strings */; };
+		95F7479B15521E4900F70A49 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F7479A15521E4900F70A49 /* main.m */; };
+		95F7479F15521E4900F70A49 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F7479E15521E4900F70A49 /* AppDelegate.m */; };
+		95F747A215521E4900F70A49 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95F747A015521E4900F70A49 /* MainStoryboard.storyboard */; };
+		95F747A515521E4900F70A49 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F747A415521E4900F70A49 /* FirstViewController.m */; };
+		95F747AC15521E4900F70A49 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F747AB15521E4900F70A49 /* SecondViewController.m */; };
+		95F747B815521E4900F70A49 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F747B715521E4900F70A49 /* SenTestingKit.framework */; };
+		95F747B915521E4900F70A49 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F7478E15521E4900F70A49 /* UIKit.framework */; };
+		95F747BA15521E4900F70A49 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F7479015521E4900F70A49 /* Foundation.framework */; };
+		95F747C215521E4900F70A49 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 95F747C015521E4900F70A49 /* InfoPlist.strings */; };
+		95F747C515521E4900F70A49 /* Play2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F747C415521E4900F70A49 /* Play2Tests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		95F747BB15521E4900F70A49 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 95F7478115521E4900F70A49 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 95F7478915521E4900F70A49;
+			remoteInfo = Play2;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		95EE4AEA15527A85006EF619 /* play2_banner_420px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play2_banner_420px.png; sourceTree = "<group>"; };
+		95EE4AEC15527C10006EF619 /* banner_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banner_placeholder.png; sourceTree = "<group>"; };
+		95EE4AF2155283DA006EF619 /* CountdownTimerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownTimerController.h; sourceTree = "<group>"; };
+		95EE4AF3155283DA006EF619 /* CountdownTimerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownTimerController.m; sourceTree = "<group>"; };
+		95EE4AF71552D288006EF619 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		95EE4AF91552D466006EF619 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		95EE4AFB1552D652006EF619 /* Play2Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Play2Place.h; sourceTree = "<group>"; };
+		95EE4AFC1552D652006EF619 /* Play2Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Play2Place.m; sourceTree = "<group>"; };
+		95EE4B0B1552DED1006EF619 /* 103-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "103-map.png"; sourceTree = "<group>"; };
+		95EE4B0D1552DF4F006EF619 /* 129-golf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "129-golf.png"; sourceTree = "<group>"; };
+		95EE4B0F1552DF6A006EF619 /* 86-camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "86-camera.png"; sourceTree = "<group>"; };
+		95EE4B111552DF7C006EF619 /* 117-todo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "117-todo.png"; sourceTree = "<group>"; };
+		95EE4B131552E50B006EF619 /* DGTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DGTableViewCell.h; sourceTree = "<group>"; };
+		95EE4B141552E50B006EF619 /* DGTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGTableViewCell.m; sourceTree = "<group>"; };
+		95EE4B161552E5F7006EF619 /* PhotoDareGroupListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDareGroupListViewController.h; sourceTree = "<group>"; };
+		95EE4B171552E5F8006EF619 /* PhotoDareGroupListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDareGroupListViewController.m; sourceTree = "<group>"; };
+		95EE4B191552E698006EF619 /* DareGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DareGroup.h; sourceTree = "<group>"; };
+		95EE4B1A1552E698006EF619 /* DareGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DareGroup.m; sourceTree = "<group>"; };
+		95EE4B2B15537221006EF619 /* PhotoDareGroupAlbumViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDareGroupAlbumViewCell.h; sourceTree = "<group>"; };
+		95EE4B2C15537221006EF619 /* PhotoDareGroupAlbumViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDareGroupAlbumViewCell.m; sourceTree = "<group>"; };
+		95EE4B2E15537969006EF619 /* PhotoDareGroupAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDareGroupAlbumViewController.h; sourceTree = "<group>"; };
+		95EE4B2F15537969006EF619 /* PhotoDareGroupAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDareGroupAlbumViewController.m; sourceTree = "<group>"; };
+		95EE4B3115537C1D006EF619 /* IMG_1339.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1339.JPG; sourceTree = "<group>"; };
+		95EE4B3215537C1D006EF619 /* IMG_1357.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1357.JPG; sourceTree = "<group>"; };
+		95EE4B3315537C1D006EF619 /* IMG_1359.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1359.jpg; sourceTree = "<group>"; };
+		95EE4B3415537C1D006EF619 /* IMG_1419.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1419.JPG; sourceTree = "<group>"; };
+		95EE4B3515537C1D006EF619 /* IMG_1425.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1425.JPG; sourceTree = "<group>"; };
+		95EE4B3615537C1D006EF619 /* IMG_1428.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1428.JPG; sourceTree = "<group>"; };
+		95F7478A15521E4900F70A49 /* Play2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Play2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		95F7478E15521E4900F70A49 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		95F7479015521E4900F70A49 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		95F7479215521E4900F70A49 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		95F7479615521E4900F70A49 /* Play2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Play2-Info.plist"; sourceTree = "<group>"; };
+		95F7479815521E4900F70A49 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		95F7479A15521E4900F70A49 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		95F7479C15521E4900F70A49 /* Play2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Play2-Prefix.pch"; sourceTree = "<group>"; };
+		95F7479D15521E4900F70A49 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		95F7479E15521E4900F70A49 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		95F747A115521E4900F70A49 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		95F747A315521E4900F70A49 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		95F747A415521E4900F70A49 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		95F747AA15521E4900F70A49 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		95F747AB15521E4900F70A49 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		95F747B615521E4900F70A49 /* Play2Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Play2Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		95F747B715521E4900F70A49 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		95F747BF15521E4900F70A49 /* Play2Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Play2Tests-Info.plist"; sourceTree = "<group>"; };
+		95F747C115521E4900F70A49 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		95F747C315521E4900F70A49 /* Play2Tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Play2Tests.h; sourceTree = "<group>"; };
+		95F747C415521E4900F70A49 /* Play2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Play2Tests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		95F7478715521E4900F70A49 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95EE4AFA1552D466006EF619 /* CoreLocation.framework in Frameworks */,
+				95EE4AF81552D288006EF619 /* MapKit.framework in Frameworks */,
+				95F7478F15521E4900F70A49 /* UIKit.framework in Frameworks */,
+				95F7479115521E4900F70A49 /* Foundation.framework in Frameworks */,
+				95F7479315521E4900F70A49 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95F747B215521E4900F70A49 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95F747B815521E4900F70A49 /* SenTestingKit.framework in Frameworks */,
+				95F747B915521E4900F70A49 /* UIKit.framework in Frameworks */,
+				95F747BA15521E4900F70A49 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		95EE4A96155273DE006EF619 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				95EE4B3D15537C23006EF619 /* Sample Images */,
+				95EE4B0B1552DED1006EF619 /* 103-map.png */,
+				95EE4B0D1552DF4F006EF619 /* 129-golf.png */,
+				95EE4B0F1552DF6A006EF619 /* 86-camera.png */,
+				95EE4B111552DF7C006EF619 /* 117-todo.png */,
+				95EE4AEA15527A85006EF619 /* play2_banner_420px.png */,
+				95EE4AEC15527C10006EF619 /* banner_placeholder.png */,
+				95F747A015521E4900F70A49 /* MainStoryboard.storyboard */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		95EE4B29155371A9006EF619 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				95EE4B131552E50B006EF619 /* DGTableViewCell.h */,
+				95EE4B141552E50B006EF619 /* DGTableViewCell.m */,
+				95EE4B2B15537221006EF619 /* PhotoDareGroupAlbumViewCell.h */,
+				95EE4B2C15537221006EF619 /* PhotoDareGroupAlbumViewCell.m */,
+			);
+			name = TableViewCells;
+			sourceTree = "<group>";
+		};
+		95EE4B2A155371C7006EF619 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				95EE4AFB1552D652006EF619 /* Play2Place.h */,
+				95EE4AFC1552D652006EF619 /* Play2Place.m */,
+				95EE4B191552E698006EF619 /* DareGroup.h */,
+				95EE4B1A1552E698006EF619 /* DareGroup.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		95EE4B3D15537C23006EF619 /* Sample Images */ = {
+			isa = PBXGroup;
+			children = (
+				95EE4B3115537C1D006EF619 /* IMG_1339.JPG */,
+				95EE4B3215537C1D006EF619 /* IMG_1357.JPG */,
+				95EE4B3315537C1D006EF619 /* IMG_1359.jpg */,
+				95EE4B3415537C1D006EF619 /* IMG_1419.JPG */,
+				95EE4B3515537C1D006EF619 /* IMG_1425.JPG */,
+				95EE4B3615537C1D006EF619 /* IMG_1428.JPG */,
+			);
+			name = "Sample Images";
+			sourceTree = "<group>";
+		};
+		95F7477F15521E4900F70A49 = {
+			isa = PBXGroup;
+			children = (
+				95EE4A96155273DE006EF619 /* Resources */,
+				95F7479415521E4900F70A49 /* Play2 */,
+				95F747BD15521E4900F70A49 /* Play2Tests */,
+				95F7478D15521E4900F70A49 /* Frameworks */,
+				95F7478B15521E4900F70A49 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		95F7478B15521E4900F70A49 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				95F7478A15521E4900F70A49 /* Play2.app */,
+				95F747B615521E4900F70A49 /* Play2Tests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		95F7478D15521E4900F70A49 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				95EE4AF91552D466006EF619 /* CoreLocation.framework */,
+				95EE4AF71552D288006EF619 /* MapKit.framework */,
+				95F7478E15521E4900F70A49 /* UIKit.framework */,
+				95F7479015521E4900F70A49 /* Foundation.framework */,
+				95F7479215521E4900F70A49 /* CoreGraphics.framework */,
+				95F747B715521E4900F70A49 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		95F7479415521E4900F70A49 /* Play2 */ = {
+			isa = PBXGroup;
+			children = (
+				95EE4B2A155371C7006EF619 /* Models */,
+				95EE4B29155371A9006EF619 /* TableViewCells */,
+				95F7479D15521E4900F70A49 /* AppDelegate.h */,
+				95F7479E15521E4900F70A49 /* AppDelegate.m */,
+				95F747A315521E4900F70A49 /* FirstViewController.h */,
+				95F747A415521E4900F70A49 /* FirstViewController.m */,
+				95F747AA15521E4900F70A49 /* SecondViewController.h */,
+				95F747AB15521E4900F70A49 /* SecondViewController.m */,
+				95F7479515521E4900F70A49 /* Supporting Files */,
+				95EE4AF2155283DA006EF619 /* CountdownTimerController.h */,
+				95EE4AF3155283DA006EF619 /* CountdownTimerController.m */,
+				95EE4B161552E5F7006EF619 /* PhotoDareGroupListViewController.h */,
+				95EE4B171552E5F8006EF619 /* PhotoDareGroupListViewController.m */,
+				95EE4B2E15537969006EF619 /* PhotoDareGroupAlbumViewController.h */,
+				95EE4B2F15537969006EF619 /* PhotoDareGroupAlbumViewController.m */,
+			);
+			path = Play2;
+			sourceTree = "<group>";
+		};
+		95F7479515521E4900F70A49 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				95F7479615521E4900F70A49 /* Play2-Info.plist */,
+				95F7479715521E4900F70A49 /* InfoPlist.strings */,
+				95F7479A15521E4900F70A49 /* main.m */,
+				95F7479C15521E4900F70A49 /* Play2-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		95F747BD15521E4900F70A49 /* Play2Tests */ = {
+			isa = PBXGroup;
+			children = (
+				95F747C315521E4900F70A49 /* Play2Tests.h */,
+				95F747C415521E4900F70A49 /* Play2Tests.m */,
+				95F747BE15521E4900F70A49 /* Supporting Files */,
+			);
+			path = Play2Tests;
+			sourceTree = "<group>";
+		};
+		95F747BE15521E4900F70A49 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				95F747BF15521E4900F70A49 /* Play2Tests-Info.plist */,
+				95F747C015521E4900F70A49 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		95F7478915521E4900F70A49 /* Play2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95F747C815521E4900F70A49 /* Build configuration list for PBXNativeTarget "Play2" */;
+			buildPhases = (
+				95F7478615521E4900F70A49 /* Sources */,
+				95F7478715521E4900F70A49 /* Frameworks */,
+				95F7478815521E4900F70A49 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Play2;
+			productName = Play2;
+			productReference = 95F7478A15521E4900F70A49 /* Play2.app */;
+			productType = "com.apple.product-type.application";
+		};
+		95F747B515521E4900F70A49 /* Play2Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95F747CB15521E4900F70A49 /* Build configuration list for PBXNativeTarget "Play2Tests" */;
+			buildPhases = (
+				95F747B115521E4900F70A49 /* Sources */,
+				95F747B215521E4900F70A49 /* Frameworks */,
+				95F747B315521E4900F70A49 /* Resources */,
+				95F747B415521E4900F70A49 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				95F747BC15521E4900F70A49 /* PBXTargetDependency */,
+			);
+			name = Play2Tests;
+			productName = Play2Tests;
+			productReference = 95F747B615521E4900F70A49 /* Play2Tests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		95F7478115521E4900F70A49 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "mohawk.riceball@gmail.com";
+			};
+			buildConfigurationList = 95F7478415521E4900F70A49 /* Build configuration list for PBXProject "Play2" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 95F7477F15521E4900F70A49;
+			productRefGroup = 95F7478B15521E4900F70A49 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				95F7478915521E4900F70A49 /* Play2 */,
+				95F747B515521E4900F70A49 /* Play2Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		95F7478815521E4900F70A49 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95F7479915521E4900F70A49 /* InfoPlist.strings in Resources */,
+				95F747A215521E4900F70A49 /* MainStoryboard.storyboard in Resources */,
+				95EE4AEB15527A85006EF619 /* play2_banner_420px.png in Resources */,
+				95EE4AED15527C10006EF619 /* banner_placeholder.png in Resources */,
+				95EE4B0C1552DED1006EF619 /* 103-map.png in Resources */,
+				95EE4B0E1552DF4F006EF619 /* 129-golf.png in Resources */,
+				95EE4B101552DF6A006EF619 /* 86-camera.png in Resources */,
+				95EE4B121552DF7C006EF619 /* 117-todo.png in Resources */,
+				95EE4B3715537C1D006EF619 /* IMG_1339.JPG in Resources */,
+				95EE4B3815537C1D006EF619 /* IMG_1357.JPG in Resources */,
+				95EE4B3915537C1D006EF619 /* IMG_1359.jpg in Resources */,
+				95EE4B3A15537C1D006EF619 /* IMG_1419.JPG in Resources */,
+				95EE4B3B15537C1D006EF619 /* IMG_1425.JPG in Resources */,
+				95EE4B3C15537C1D006EF619 /* IMG_1428.JPG in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95F747B315521E4900F70A49 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95F747C215521E4900F70A49 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		95F747B415521E4900F70A49 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		95F7478615521E4900F70A49 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95F7479B15521E4900F70A49 /* main.m in Sources */,
+				95F7479F15521E4900F70A49 /* AppDelegate.m in Sources */,
+				95F747A515521E4900F70A49 /* FirstViewController.m in Sources */,
+				95F747AC15521E4900F70A49 /* SecondViewController.m in Sources */,
+				95EE4AF4155283DA006EF619 /* CountdownTimerController.m in Sources */,
+				95EE4AFD1552D652006EF619 /* Play2Place.m in Sources */,
+				95EE4B151552E50C006EF619 /* DGTableViewCell.m in Sources */,
+				95EE4B181552E5F8006EF619 /* PhotoDareGroupListViewController.m in Sources */,
+				95EE4B1B1552E698006EF619 /* DareGroup.m in Sources */,
+				95EE4B2D15537221006EF619 /* PhotoDareGroupAlbumViewCell.m in Sources */,
+				95EE4B301553796A006EF619 /* PhotoDareGroupAlbumViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95F747B115521E4900F70A49 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95F747C515521E4900F70A49 /* Play2Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		95F747BC15521E4900F70A49 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 95F7478915521E4900F70A49 /* Play2 */;
+			targetProxy = 95F747BB15521E4900F70A49 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		95F7479715521E4900F70A49 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				95F7479815521E4900F70A49 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		95F747A015521E4900F70A49 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				95F747A115521E4900F70A49 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			path = Play2;
+			sourceTree = "<group>";
+		};
+		95F747C015521E4900F70A49 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				95F747C115521E4900F70A49 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		95F747C615521E4900F70A49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jun Kit Lee (GQ9RG2NNL3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PROVISIONING_PROFILE = "C68F2740-EF2C-4DA4-8930-8F6DD9211EF4";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		95F747C715521E4900F70A49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jun Kit Lee (GQ9RG2NNL3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "C68F2740-EF2C-4DA4-8930-8F6DD9211EF4";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		95F747C915521E4900F70A49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Play2/Play2-Prefix.pch";
+				INFOPLIST_FILE = "Play2/Play2-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		95F747CA15521E4900F70A49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Play2/Play2-Prefix.pch";
+				INFOPLIST_FILE = "Play2/Play2-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		95F747CC15521E4900F70A49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Play2.app/Play2";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Play2/Play2-Prefix.pch";
+				INFOPLIST_FILE = "Play2Tests/Play2Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		95F747CD15521E4900F70A49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Play2.app/Play2";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Play2/Play2-Prefix.pch";
+				INFOPLIST_FILE = "Play2Tests/Play2Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		95F7478415521E4900F70A49 /* Build configuration list for PBXProject "Play2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95F747C615521E4900F70A49 /* Debug */,
+				95F747C715521E4900F70A49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95F747C815521E4900F70A49 /* Build configuration list for PBXNativeTarget "Play2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95F747C915521E4900F70A49 /* Debug */,
+				95F747CA15521E4900F70A49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95F747CB15521E4900F70A49 /* Build configuration list for PBXNativeTarget "Play2Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95F747CC15521E4900F70A49 /* Debug */,
+				95F747CD15521E4900F70A49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 95F7478115521E4900F70A49 /* Project object */;
+}

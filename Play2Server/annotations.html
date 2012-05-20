@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+	<form method="POST">
+		{{ form }}
+		<input type="submit" value="Add New" />
+	</form>
+
+	<table border=1>
+		<tr>
+			<th>ID</th>
+			<th>Coordinates</th>
+			<th>Title</th>
+			<th>Subtitle</th>
+			<th>Pin Image</th>
+			<th>Detail View</th>
+		</tr>
+
+		{% for annotation in annotations %}
+			<tr>
+				<td>{{ annotation.id }}</td>
+				<td>{{ annotation.coords }}</td>
+				<td>{{ annotation.title }}</td>
+				<td>{{ annotation.subtitle }}</td>
+				<td>{% if annotation.image_url %}<img src="{{ annotation.image_url }}" />{% endif %}</td>
+				<td><a href="/annotations/detail/{{ annotation.id }}">Detail</a></td>
+			</tr>
+		{% endfor %}
+	</table>
+</body>
+
+</html>
