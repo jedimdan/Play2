@@ -7,10 +7,13 @@
 //
 
 #import "PhotoUploadingCell.h"
+#import "PhotoDareGroupListViewController.h"
 
 @implementation PhotoUploadingCell
 @synthesize previewImageView;
 @synthesize imageUploadProgressView;
+@synthesize retryButton;
+@synthesize controller;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -27,5 +30,8 @@
 
     // Configure the view for the selected state
 }
+
+
+
 
 @end

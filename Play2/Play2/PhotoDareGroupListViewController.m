@@ -11,6 +11,7 @@
 #import "DGTableViewCell.h"
 #import "PhotoUploadingCell.h"
 #import "UIImage+RotateAndResize.h"
+#import "PhotoUploadController.h"
 
 @implementation PhotoDareGroupListViewController
 @synthesize dareGroups;
@@ -37,7 +38,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    uploadConnectionsArray = [NSMutableArray array];
+    photoUploadControllersArray = [NSMutableArray array];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -75,128 +76,73 @@
         UIImageWriteToSavedPhotosAlbum(editedImage, nil, nil, nil);
     }
     
-    NSString *serverURL = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"Play2ServerURL"];
-    NSURL *imageUploadURL = [NSURL URLWithString:[serverURL stringByAppendingPathComponent:@"upload"]];
+    PhotoUploadController *uploadController = [[PhotoUploadController alloc] initWithImageInfoDictionary:info];
+    uploadController.delegate = self;
+    [photoUploadControllersArray addObject:uploadController];
+    [uploadController startUpload];
     
-    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:imageUploadURL] 
-                                       queue:[NSOperationQueue mainQueue] 
-                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                               NSString *imageUploadString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                               NSLog(@"URL is %@", imageUploadString);
-                               [self uploadImageToServer:[NSURL URLWithString:imageUploadString] imageData:info];
-                           }];
-}
-
-- (void)uploadImageToServer: (NSURL *)imageUploadURL imageData:(NSDictionary *)imageDictionary
-{
-
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *cgName = [defaults stringForKey:@"cgName"];
-    
-    UIImage *theImage = [imageDictionary objectForKey:UIImagePickerControllerOriginalImage];    
-    UIImage *resizedImage = [theImage imageByScalingToSize:CGSizeMake(1024, 768)];
-    NSData *imageData = UIImageJPEGRepresentation(resizedImage, 1.0);
-    NSString *imageDate = [[[imageDictionary objectForKey:@"UIImagePickerControllerMediaMetadata"]
-                                             objectForKey:@"{Exif}"]
-                                             objectForKey:@"DateTimeOriginal"];
-    NSString *imageFileName = [[[cgName stringByAppendingString:@" - "] stringByAppendingString:imageDate] stringByAppendingPathExtension:@"jpg"];
-
-    
-    //prepare the multipart request
-    NSMutableURLRequest *uploadRequest = [NSMutableURLRequest requestWithURL:imageUploadURL];
-    
-    NSString *boundary = [NSString stringWithString:@"0xKhTmLbOuNdArY"];
-    [uploadRequest setValue:[NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary] forHTTPHeaderField:@"Content-Type"];
-    uploadRequest.HTTPMethod = @"POST";
-    
-    //prepare the multipart POST body
-    NSMutableData *postBody = [NSMutableData data];
-    @autoreleasepool {
-        [postBody appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-        [postBody appendData:[@"Content-Disposition: form-data; name=\"cg_name\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-        [postBody appendData:[cgName dataUsingEncoding:NSUTF8StringEncoding]];
-        [postBody appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-        [postBody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"image_file\"; filename=\"%@\"\r\n", imageFileName] dataUsingEncoding:NSUTF8StringEncoding]];
-        [postBody appendData:[@"Content-Type: image/jpeg\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-        [postBody appendData:imageData];
-        [postBody appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-        [postBody appendData:[@"Content-Disposition: form-data; name=\"image_date\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-        [postBody appendData:[imageDate dataUsingEncoding:NSUTF8StringEncoding]];
-        [postBody appendData:[[NSString stringWithFormat:@"\r\n--%@--\r \n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    }
-    
-    uploadRequest.HTTPBody = postBody;
-    
-    NSURLConnection *theConnection = [NSURLConnection connectionWithRequest:uploadRequest delegate:self];
-    [uploadConnectionsArray addObject:theConnection];
-    
-    //get the index of the newly-added connection
-    NSUInteger connectionIndex = [uploadConnectionsArray indexOfObject:theConnection];
-    
-    //and use this index to animate in the cell
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:connectionIndex inSection:0];
+    //insert a new row to show users the upload
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[photoUploadControllersArray indexOfObject:uploadController] inSection:0];
     [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationTop];
-    
 }
+
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    NSLog(@"Cancelled");
     [picker dismissModalViewControllerAnimated:YES];
 }
 
-/** NSURLConnectionDelegate methods **/
+/** PhotoUploadControllerDelegate methods **/
 
-- (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse
+- (void)photoUploadController: (PhotoUploadController *)controller progressUpdate: (float)progress
 {
-    return cachedResponse;
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
+    //find the cell corresponding to this controller
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[photoUploadControllersArray indexOfObject:controller] inSection:0];
+    PhotoUploadingCell *cell = (PhotoUploadingCell *)[self.tableView cellForRowAtIndexPath:indexPath];
     
+    cell.imageUploadProgressView.progress = progress;
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+- (void)photoUploadDidFinish:(PhotoUploadController *)controller
 {
-    
-}
-
-- (void)connection:(NSURLConnection *)connection didSendBodyData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
-{
-    //get the correct cell
-    NSUInteger connectionObjIndex = [uploadConnectionsArray indexOfObject:connection];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:connectionObjIndex inSection:0];
-    PhotoUploadingCell *theCell = (PhotoUploadingCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-    
-    theCell.imageUploadProgressView.progress = (double)totalBytesWritten / (double)totalBytesExpectedToWrite;
-}
-
-- (NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse
-{
-    //NSLog(@"Getting a redirect to %@", [request URL]);
-    return request;
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection
-{
-    //get the index path of the upload table view cell
-    NSUInteger connectionObjIndex = [uploadConnectionsArray indexOfObject:connection];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:connectionObjIndex inSection:0];
-    
-    //remove the used connection object from the array
-    [uploadConnectionsArray removeObject:connection];
+    //remove the PhotoUploadController object from the array
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[photoUploadControllersArray indexOfObject:controller] inSection:0];
+    [photoUploadControllersArray removeObject:controller];
     
     //remove the cell
     [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationBottom];
 }
 
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+- (void)photoUploadController:(PhotoUploadController *)controller didFailWithError: (NSError *)error
 {
-    NSLog(@"Connection failed with %@. %@", [error localizedDescription], [error userInfo]);
+    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
     [alert show];
+    
+    //find the cell corresponding to this controller
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[photoUploadControllersArray indexOfObject:controller] inSection:0];
+    PhotoUploadingCell *cell = (PhotoUploadingCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    
+    //update the cell to show error state
+    [self convertCellToErrorState:cell controller:controller];
+    
 }
+
+- (void)convertCellToErrorState: (PhotoUploadingCell *)cell controller:(PhotoUploadController *)controller
+{
+    cell.retryButton.hidden = NO;
+    [cell.retryButton addTarget:controller action:@selector(startUpload) forControlEvents:UIControlEventTouchUpInside];
+    [cell.retryButton addTarget:self action:@selector(retryButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)retryButtonTapped:(id)sender
+{
+    //disable the button
+    UIButton *button = (UIButton *)sender;
+    button.hidden = YES;
+    [button removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+}
+
 
 - (void)viewDidUnload
 {
@@ -245,7 +191,7 @@
     switch (section)
     {
         case 0:
-            return [uploadConnectionsArray count];
+            return [photoUploadControllersArray count];
             break;
         case 1:
             return [dareGroups count];
@@ -282,7 +228,14 @@
             cell = [[PhotoUploadingCell alloc] init];
         }
         
-        cell.imageUploadProgressView.progress = 0.0;
+        PhotoUploadController *theController = [photoUploadControllersArray objectAtIndex:indexPath.row];
+        if ([theController hasFailed])
+        {
+            [self convertCellToErrorState:cell controller:theController];
+        }
+        cell.controller = theController;
+        cell.previewImageView.image = [theController originalImage];
+        cell.imageUploadProgressView.progress = theController.progressPercentage;
         
         return cell;
     }

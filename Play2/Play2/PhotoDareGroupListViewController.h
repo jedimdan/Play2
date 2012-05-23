@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <MobileCoreServices/UTCoreTypes.h>
+#import "PhotoUploadController.h"
 
-@interface PhotoDareGroupListViewController : UITableViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, NSURLConnectionDelegate> {
-    NSMutableArray *uploadConnectionsArray;
+@interface PhotoDareGroupListViewController : UITableViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, PhotoUploadControllerDelegate> {
+    NSMutableArray *photoUploadControllersArray;
 }
 
 @property (strong, nonatomic) NSArray *dareGroups;
 - (IBAction)photoButtonPressed:(id)sender;
-- (void)uploadImageToServer: (NSURL *)imageUploadURL imageData:(NSDictionary *)imageDictionary;
 @end

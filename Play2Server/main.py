@@ -59,10 +59,11 @@ class Photo(db.Model):
 
 class PhotoUploaderHandler(webapp2.RequestHandler):
 	def get(self):
-		if randrange(1):
+		if randrange(5) < 4:
 			upload_url = blobstore.create_upload_url('/upload/complete')
 			self.response.out.write(upload_url)
 		else:
+			# designed to fail 20% of the time to test failure on the iOS client
 			self.response.out.write('http://this.is.a.test.corrupted.url')
 
 class PhotoUploadCompleteHandler(blobstore_handlers.BlobstoreUploadHandler):

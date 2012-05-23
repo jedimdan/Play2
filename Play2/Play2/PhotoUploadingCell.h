@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class PhotoUploadController;
 @interface PhotoUploadingCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *previewImageView;
 @property (weak, nonatomic) IBOutlet UIProgressView *imageUploadProgressView;
-
+@property (weak, nonatomic) IBOutlet UIButton *retryButton;
+@property (weak, nonatomic) PhotoUploadController *controller;
 @end
