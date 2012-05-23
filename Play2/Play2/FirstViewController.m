@@ -8,6 +8,7 @@
 
 #import "FirstViewController.h"
 #import "CountdownTimerController.h"
+#import "CaregroupSelectionViewController.h"
 
 @implementation FirstViewController
 @synthesize bannerScrollView;
@@ -39,6 +40,18 @@
     
     self.countdownWebView.scalesPageToFit = YES;
     
+}
+
+- (void)checkIfUserHasCaregroup
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *cgName = [defaults stringForKey:@"cgName"];
+    
+    if (!cgName)
+    {
+        CaregroupSelectionViewController *caregroupSelection = [self.storyboard instantiateViewControllerWithIdentifier:@"CaregroupSelectionViewController"];
+        [self presentModalViewController:caregroupSelection animated:YES];
+    }
 }
 
 - (void)determineDisplayCachedImagesOrNot
@@ -185,6 +198,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [self checkIfUserHasCaregroup];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

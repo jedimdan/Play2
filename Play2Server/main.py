@@ -18,8 +18,12 @@ import webapp2
 import json
 import jinja2
 import os
+import urllib
 from google.appengine.ext import db
+from google.appengine.ext import blobstore
+from google.appengine.ext.webapp import blobstore_handlers
 import djangoforms
+import logging
 
 jinja_environment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
@@ -39,6 +43,25 @@ class Play2BannerHandler(webapp2.RequestHandler):
 		self.response.headers['Content-Type'] = 'application/json'
 		self.response.headers['Cache-Control'] = 'public, max-age=1200'
 		self.response.out.write(json.dumps(banners, indent=4))
+
+class PhotoUploaderHandler(webapp2.RequestHandler):
+	def get(self):
+		upload_url = blobstore.create_upload_url('/upload/complete')
+		self.response.out.write(upload_url)
+
+class PhotoUploadCompleteHandler(blobstore_handlers.BlobstoreUploadHandler):
+	def post(self):
+		upload_files = self.get_uploads('image_file')  # 'file' is file upload field in the form
+		blob_info = upload_files[0]
+		logging.info(blob_info)
+
+		args = self.request.arguments()
+		logging.info('lalala')
+		logging.info(args)
+
+		bod = self.request.body
+		logging.info('body')
+		logging.info(bod)
 
 class MapAnnotation(db.Model):
 	coords = db.GeoPtProperty()
@@ -83,7 +106,10 @@ routes = [
 	('/', MainHandler),
 	('/banners', Play2BannerHandler),
 	('/annotations', MapAnnotationHandler),
-	('/annotation_editor', MapAnnotationEditorHandler)
+	('/upload', PhotoUploaderHandler),
+	('/upload/complete', PhotoUploadCompleteHandler),
+	('/annotation_editor', MapAnnotationEditorHandler),
+
 ]
 
 app = webapp2.WSGIApplication(routes,

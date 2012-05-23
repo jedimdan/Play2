@@ -9,6 +9,7 @@
 #import "PhotoDareGroupListViewController.h"
 #import "DareGroup.h"
 #import "DGTableViewCell.h"
+#import "PhotoUploadingCell.h"
 
 @implementation PhotoDareGroupListViewController
 @synthesize dareGroups;
@@ -35,7 +36,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    uploadConnectionsArray = [NSMutableArray array];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -55,10 +56,83 @@
     [self presentModalViewController:picker animated:YES];
 }
 
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    NSLog(@"Photo taken!");
     [picker dismissModalViewControllerAnimated:YES];
+    
+    //save the image locally first
+    UIImage *originalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    UIImage *editedImage = [info objectForKey:UIImagePickerControllerEditedImage];
+    
+    if (!editedImage)
+    {
+        UIImageWriteToSavedPhotosAlbum(originalImage, nil, nil, nil);
+    }
+    
+    else 
+    {
+        UIImageWriteToSavedPhotosAlbum(editedImage, nil, nil, nil);
+    }
+    
+    [self uploadImageToServer:info];
+}
+
+- (void)uploadImageToServer: (NSDictionary *)imageDictionary
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *cgName = [defaults stringForKey:@"cgName"];
+    UIImage *theImage = [imageDictionary objectForKey:UIImagePickerControllerOriginalImage];
+    NSData *imageData = UIImageJPEGRepresentation(theImage, 1.0);
+    NSString *imageDate = [[[imageDictionary objectForKey:@"UIImagePickerControllerMediaMetadata"]
+                                             objectForKey:@"{Exif}"]
+                                             objectForKey:@"DateTimeOriginal"];
+    
+    NSString *serverURL = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"Play2ServerURL"];
+    NSURL *imageUploadURL = [NSURL URLWithString:[serverURL stringByAppendingPathComponent:@"upload"]];
+    
+    NSError *error;
+    NSString *photoUploadURL = [NSString stringWithContentsOfURL:imageUploadURL encoding:NSUTF8StringEncoding error:&error];
+    
+    if ((!photoUploadURL) || (error))
+    {
+        NSLog(@"An error occurred in getting the upload URL: %@", [error localizedDescription]);
+        return;
+    }
+    
+    //prepare the multipart request
+    NSMutableURLRequest *uploadRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:photoUploadURL]];
+    
+    NSString *boundary = [NSString stringWithString:@"0xKhTmLbOuNdArY"];
+    [uploadRequest setValue:[NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary] forHTTPHeaderField:@"Content-Type"];
+    uploadRequest.HTTPMethod = @"POST";
+    
+    //prepare the multipart POST body
+    NSMutableData *postBody = [NSMutableData data];
+    [postBody appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postBody appendData:[@"Content-Disposition: form-data; name=\"cg_name\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [postBody appendData:[cgName dataUsingEncoding:NSUTF8StringEncoding]];
+    [postBody appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postBody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"image_file\"; filename=\"%@\"\r\n", @"testtest3.jpg"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postBody appendData:[@"Content-Type: image/jpeg\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [postBody appendData:imageData];
+    [postBody appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [postBody appendData:[@"Content-Disposition: form-data; name=\"image_date\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [postBody appendData:[imageDate dataUsingEncoding:NSUTF8StringEncoding]];
+    [postBody appendData:[[NSString stringWithFormat:@"\r\n--%@--\r \n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    uploadRequest.HTTPBody = postBody;
+    
+    NSURLConnection *theConnection = [NSURLConnection connectionWithRequest:uploadRequest delegate:self];
+    [uploadConnectionsArray addObject:theConnection];
+    
+    //get the index of the newly-added connection
+    NSUInteger connectionIndex = [uploadConnectionsArray indexOfObject:theConnection];
+    
+    //and use this index to animate in the cell
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:connectionIndex inSection:0];
+    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationTop];
+    
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
@@ -67,7 +141,51 @@
     [picker dismissModalViewControllerAnimated:YES];
 }
 
+/** NSURLConnectionDelegate methods **/
 
+- (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse
+{
+    return cachedResponse;
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    
+}
+
+- (void)connection:(NSURLConnection *)connection didSendBodyData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
+{
+    //get the correct cell
+    NSUInteger connectionObjIndex = [uploadConnectionsArray indexOfObject:connection];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:connectionObjIndex inSection:0];
+    PhotoUploadingCell *theCell = (PhotoUploadingCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    
+    theCell.imageUploadProgressView.progress = (double)totalBytesWritten / (double)totalBytesExpectedToWrite;
+}
+
+- (NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse
+{
+    //NSLog(@"Getting a redirect to %@", [request URL]);
+    return request;
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    //get the index path of the upload table view cell
+    NSUInteger connectionObjIndex = [uploadConnectionsArray indexOfObject:connection];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:connectionObjIndex inSection:0];
+    
+    //remove the used connection object from the array
+    [uploadConnectionsArray removeObject:connection];
+    
+    //remove the cell
+    [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationBottom];
+}
 
 - (void)viewDidUnload
 {
@@ -107,34 +225,58 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [dareGroups count];
+    switch (section)
+    {
+        case 0:
+            return [uploadConnectionsArray count];
+            break;
+        case 1:
+            return [dareGroups count];
+    }
+    
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *dareGroupCell = @"DareGroupCell";
+    static NSString *uploadCell = @"UploadCell";
     
-    DGTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[DGTableViewCell alloc] init];
-    
+    if ([indexPath section] == 1)
+    {
+        DGTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:dareGroupCell];
+        if (cell == nil) {
+            cell = [[DGTableViewCell alloc] init];
+            
+        }
+        
+        // Configure the cell...
+        DareGroup *theDareGroup = [self.dareGroups objectAtIndex:indexPath.row];
+        cell.dareGroupName.text = theDareGroup.dareGroupName;
+        cell.photoCount.text = [NSString stringWithFormat:@"%@", theDareGroup.photoCount];
+        
+        return cell;
     }
     
-    // Configure the cell...
-    DareGroup *theDareGroup = [self.dareGroups objectAtIndex:indexPath.row];
-    cell.dareGroupName.text = theDareGroup.dareGroupName;
-    cell.photoCount.text = [NSString stringWithFormat:@"%@", theDareGroup.photoCount];
+    else if ([indexPath section] == 0)
+    {
+        PhotoUploadingCell *cell = [tableView dequeueReusableCellWithIdentifier:uploadCell];
+        if (cell == nil) {
+            cell = [[PhotoUploadingCell alloc] init];
+        }
+        
+        cell.imageUploadProgressView.progress = 0.0;
+        
+        return cell;
+    }
     
-    //cell.textLabel.text = theDareGroup.dareGroupName;
-    
-    
-    return cell;
+    return nil;
 }
 
 /*

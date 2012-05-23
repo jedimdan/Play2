@@ -12,6 +12,16 @@
 		9560D50F1568E95B00E2C4AD /* index2.html in Resources */ = {isa = PBXBuildFile; fileRef = 9560D50B1568E95B00E2C4AD /* index2.html */; };
 		9560D5101568E95B00E2C4AD /* js in Resources */ = {isa = PBXBuildFile; fileRef = 9560D50C1568E95B00E2C4AD /* js */; };
 		9560D5161568F61300E2C4AD /* 184-warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 9560D5151568F61300E2C4AD /* 184-warning.png */; };
+		9560D519156B374300E2C4AD /* 57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 9560D518156B374300E2C4AD /* 57x57.png */; };
+		9560D51B156B374600E2C4AD /* 114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 9560D51A156B374600E2C4AD /* 114x114.png */; };
+		9560D521156B378300E2C4AD /* 512x512.png in Resources */ = {isa = PBXBuildFile; fileRef = 9560D51D156B378300E2C4AD /* 512x512.png */; };
+		9560D522156B378300E2C4AD /* 1024x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 9560D51E156B378300E2C4AD /* 1024x1024.png */; };
+		9560D523156B378300E2C4AD /* 72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 9560D51F156B378300E2C4AD /* 72x72.png */; };
+		9560D524156B378300E2C4AD /* 144x144.png in Resources */ = {isa = PBXBuildFile; fileRef = 9560D520156B378300E2C4AD /* 144x144.png */; };
+		9560D52B156C7F5400E2C4AD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9560D52A156C7F5400E2C4AD /* MobileCoreServices.framework */; };
+		95E6B458156CC56F00EBBF50 /* PhotoUploadingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E6B457156CC56F00EBBF50 /* PhotoUploadingCell.m */; };
+		95E6B45B156CCFB400EBBF50 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 95E6B45A156CCFB400EBBF50 /* Settings.bundle */; };
+		95E6B467156CDB1600EBBF50 /* CaregroupSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E6B466156CDB1500EBBF50 /* CaregroupSelectionViewController.m */; };
 		95EE4AEB15527A85006EF619 /* play2_banner_420px.png in Resources */ = {isa = PBXBuildFile; fileRef = 95EE4AEA15527A85006EF619 /* play2_banner_420px.png */; };
 		95EE4AED15527C10006EF619 /* banner_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 95EE4AEC15527C10006EF619 /* banner_placeholder.png */; };
 		95EE4AF4155283DA006EF619 /* CountdownTimerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EE4AF3155283DA006EF619 /* CountdownTimerController.m */; };
@@ -60,11 +70,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9560D5091568E95B00E2C4AD /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; path = css; sourceTree = "<group>"; };
+		9560D5091568E95B00E2C4AD /* css */ = {isa = PBXFileReference; lastKnownFileType = folder; name = css; path = Play2/css; sourceTree = "<group>"; };
 		9560D50A1568E95B00E2C4AD /* img */ = {isa = PBXFileReference; lastKnownFileType = folder; path = img; sourceTree = "<group>"; };
 		9560D50B1568E95B00E2C4AD /* index2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index2.html; sourceTree = "<group>"; };
 		9560D50C1568E95B00E2C4AD /* js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = js; sourceTree = "<group>"; };
 		9560D5151568F61300E2C4AD /* 184-warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "184-warning.png"; sourceTree = "<group>"; };
+		9560D518156B374300E2C4AD /* 57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 57x57.png; sourceTree = "<group>"; };
+		9560D51A156B374600E2C4AD /* 114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 114x114.png; sourceTree = "<group>"; };
+		9560D51D156B378300E2C4AD /* 512x512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 512x512.png; path = "../../../Downloads/app icon sizes PNG/app store/512x512.png"; sourceTree = "<group>"; };
+		9560D51E156B378300E2C4AD /* 1024x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1024x1024.png; path = "../../../Downloads/app icon sizes PNG/app store/1024x1024.png"; sourceTree = "<group>"; };
+		9560D51F156B378300E2C4AD /* 72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 72x72.png; path = "../../../Downloads/app icon sizes PNG/ipad/72x72.png"; sourceTree = "<group>"; };
+		9560D520156B378300E2C4AD /* 144x144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 144x144.png; path = "../../../Downloads/app icon sizes PNG/ipad/144x144.png"; sourceTree = "<group>"; };
+		9560D52A156C7F5400E2C4AD /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		95E6B456156CC56F00EBBF50 /* PhotoUploadingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoUploadingCell.h; sourceTree = "<group>"; };
+		95E6B457156CC56F00EBBF50 /* PhotoUploadingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoUploadingCell.m; sourceTree = "<group>"; };
+		95E6B45A156CCFB400EBBF50 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		95E6B465156CDB1500EBBF50 /* CaregroupSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaregroupSelectionViewController.h; sourceTree = "<group>"; };
+		95E6B466156CDB1500EBBF50 /* CaregroupSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaregroupSelectionViewController.m; sourceTree = "<group>"; };
 		95EE4AEA15527A85006EF619 /* play2_banner_420px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play2_banner_420px.png; sourceTree = "<group>"; };
 		95EE4AEC15527C10006EF619 /* banner_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banner_placeholder.png; sourceTree = "<group>"; };
 		95EE4AF2155283DA006EF619 /* CountdownTimerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownTimerController.h; sourceTree = "<group>"; };
@@ -125,6 +147,7 @@
 				95EE4AF81552D288006EF619 /* MapKit.framework in Frameworks */,
 				95F7478F15521E4900F70A49 /* UIKit.framework in Frameworks */,
 				95F7479115521E4900F70A49 /* Foundation.framework in Frameworks */,
+				9560D52B156C7F5400E2C4AD /* MobileCoreServices.framework in Frameworks */,
 				95F7479315521E4900F70A49 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,7 +168,6 @@
 		9560D5071568E91900E2C4AD /* Countdown Timer */ = {
 			isa = PBXGroup;
 			children = (
-				9560D5091568E95B00E2C4AD /* css */,
 				9560D50A1568E95B00E2C4AD /* img */,
 				9560D50B1568E95B00E2C4AD /* index2.html */,
 				9560D50C1568E95B00E2C4AD /* js */,
@@ -153,9 +175,23 @@
 			name = "Countdown Timer";
 			sourceTree = "<group>";
 		};
+		9560D51C156B376800E2C4AD /* App Icons */ = {
+			isa = PBXGroup;
+			children = (
+				9560D51A156B374600E2C4AD /* 114x114.png */,
+				9560D518156B374300E2C4AD /* 57x57.png */,
+				9560D51D156B378300E2C4AD /* 512x512.png */,
+				9560D51E156B378300E2C4AD /* 1024x1024.png */,
+				9560D51F156B378300E2C4AD /* 72x72.png */,
+				9560D520156B378300E2C4AD /* 144x144.png */,
+			);
+			name = "App Icons";
+			sourceTree = "<group>";
+		};
 		95EE4A96155273DE006EF619 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9560D51C156B376800E2C4AD /* App Icons */,
 				95EE4B3D15537C23006EF619 /* Sample Images */,
 				9560D5151568F61300E2C4AD /* 184-warning.png */,
 				95EE4B0B1552DED1006EF619 /* 103-map.png */,
@@ -165,6 +201,7 @@
 				95EE4AEA15527A85006EF619 /* play2_banner_420px.png */,
 				95EE4AEC15527C10006EF619 /* banner_placeholder.png */,
 				95F747A015521E4900F70A49 /* MainStoryboard.storyboard */,
+				9560D5091568E95B00E2C4AD /* css */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -176,6 +213,8 @@
 				95EE4B141552E50B006EF619 /* DGTableViewCell.m */,
 				95EE4B2B15537221006EF619 /* PhotoDareGroupAlbumViewCell.h */,
 				95EE4B2C15537221006EF619 /* PhotoDareGroupAlbumViewCell.m */,
+				95E6B456156CC56F00EBBF50 /* PhotoUploadingCell.h */,
+				95E6B457156CC56F00EBBF50 /* PhotoUploadingCell.m */,
 			);
 			name = TableViewCells;
 			sourceTree = "<group>";
@@ -207,6 +246,7 @@
 		95F7477F15521E4900F70A49 = {
 			isa = PBXGroup;
 			children = (
+				95E6B45A156CCFB400EBBF50 /* Settings.bundle */,
 				95EE4A96155273DE006EF619 /* Resources */,
 				95F7479415521E4900F70A49 /* Play2 */,
 				95F747BD15521E4900F70A49 /* Play2Tests */,
@@ -227,6 +267,7 @@
 		95F7478D15521E4900F70A49 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9560D52A156C7F5400E2C4AD /* MobileCoreServices.framework */,
 				95EE4AF91552D466006EF619 /* CoreLocation.framework */,
 				95EE4AF71552D288006EF619 /* MapKit.framework */,
 				95F7478E15521E4900F70A49 /* UIKit.framework */,
@@ -256,6 +297,8 @@
 				95EE4B171552E5F8006EF619 /* PhotoDareGroupListViewController.m */,
 				95EE4B2E15537969006EF619 /* PhotoDareGroupAlbumViewController.h */,
 				95EE4B2F15537969006EF619 /* PhotoDareGroupAlbumViewController.m */,
+				95E6B465156CDB1500EBBF50 /* CaregroupSelectionViewController.h */,
+				95E6B466156CDB1500EBBF50 /* CaregroupSelectionViewController.m */,
 			);
 			path = Play2;
 			sourceTree = "<group>";
@@ -335,7 +378,7 @@
 		95F7478115521E4900F70A49 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = "mohawk.riceball@gmail.com";
 			};
 			buildConfigurationList = 95F7478415521E4900F70A49 /* Build configuration list for PBXProject "Play2" */;
@@ -380,6 +423,13 @@
 				9560D50F1568E95B00E2C4AD /* index2.html in Resources */,
 				9560D5101568E95B00E2C4AD /* js in Resources */,
 				9560D5161568F61300E2C4AD /* 184-warning.png in Resources */,
+				9560D519156B374300E2C4AD /* 57x57.png in Resources */,
+				9560D51B156B374600E2C4AD /* 114x114.png in Resources */,
+				9560D521156B378300E2C4AD /* 512x512.png in Resources */,
+				9560D522156B378300E2C4AD /* 1024x1024.png in Resources */,
+				9560D523156B378300E2C4AD /* 72x72.png in Resources */,
+				9560D524156B378300E2C4AD /* 144x144.png in Resources */,
+				95E6B45B156CCFB400EBBF50 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +475,8 @@
 				95EE4B1B1552E698006EF619 /* DareGroup.m in Sources */,
 				95EE4B2D15537221006EF619 /* PhotoDareGroupAlbumViewCell.m in Sources */,
 				95EE4B301553796A006EF619 /* PhotoDareGroupAlbumViewController.m in Sources */,
+				95E6B458156CC56F00EBBF50 /* PhotoUploadingCell.m in Sources */,
+				95E6B467156CDB1600EBBF50 /* CaregroupSelectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
