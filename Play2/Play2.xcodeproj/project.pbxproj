@@ -19,6 +19,10 @@
 		9560D523156B378300E2C4AD /* 72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 9560D51F156B378300E2C4AD /* 72x72.png */; };
 		9560D524156B378300E2C4AD /* 144x144.png in Resources */ = {isa = PBXBuildFile; fileRef = 9560D520156B378300E2C4AD /* 144x144.png */; };
 		9560D52B156C7F5400E2C4AD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9560D52A156C7F5400E2C4AD /* MobileCoreServices.framework */; };
+		95714E50156D002E004D33A8 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 95714E4F156D002E004D33A8 /* UIImage+Resize.m */; };
+		95714E55156D0080004D33A8 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 95714E52156D0080004D33A8 /* UIImage+Alpha.m */; };
+		95714E56156D0080004D33A8 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 95714E54156D0080004D33A8 /* UIImage+RoundedCorner.m */; };
+		95714E5A156D05D2004D33A8 /* UIImage+RotateAndResize.m in Sources */ = {isa = PBXBuildFile; fileRef = 95714E59156D05D2004D33A8 /* UIImage+RotateAndResize.m */; };
 		95E6B458156CC56F00EBBF50 /* PhotoUploadingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E6B457156CC56F00EBBF50 /* PhotoUploadingCell.m */; };
 		95E6B45B156CCFB400EBBF50 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 95E6B45A156CCFB400EBBF50 /* Settings.bundle */; };
 		95E6B467156CDB1600EBBF50 /* CaregroupSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E6B466156CDB1500EBBF50 /* CaregroupSelectionViewController.m */; };
@@ -82,6 +86,14 @@
 		9560D51F156B378300E2C4AD /* 72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 72x72.png; path = "../../../Downloads/app icon sizes PNG/ipad/72x72.png"; sourceTree = "<group>"; };
 		9560D520156B378300E2C4AD /* 144x144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 144x144.png; path = "../../../Downloads/app icon sizes PNG/ipad/144x144.png"; sourceTree = "<group>"; };
 		9560D52A156C7F5400E2C4AD /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		95714E4E156D0026004D33A8 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		95714E4F156D002E004D33A8 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		95714E51156D0080004D33A8 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
+		95714E52156D0080004D33A8 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
+		95714E53156D0080004D33A8 /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
+		95714E54156D0080004D33A8 /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
+		95714E58156D05D2004D33A8 /* UIImage+RotateAndResize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RotateAndResize.h"; sourceTree = "<group>"; };
+		95714E59156D05D2004D33A8 /* UIImage+RotateAndResize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RotateAndResize.m"; sourceTree = "<group>"; };
 		95E6B456156CC56F00EBBF50 /* PhotoUploadingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoUploadingCell.h; sourceTree = "<group>"; };
 		95E6B457156CC56F00EBBF50 /* PhotoUploadingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoUploadingCell.m; sourceTree = "<group>"; };
 		95E6B45A156CCFB400EBBF50 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -188,6 +200,28 @@
 			name = "App Icons";
 			sourceTree = "<group>";
 		};
+		95714E4D156D001B004D33A8 /* UIImage+Resize */ = {
+			isa = PBXGroup;
+			children = (
+				95714E4E156D0026004D33A8 /* UIImage+Resize.h */,
+				95714E4F156D002E004D33A8 /* UIImage+Resize.m */,
+				95714E51156D0080004D33A8 /* UIImage+Alpha.h */,
+				95714E52156D0080004D33A8 /* UIImage+Alpha.m */,
+				95714E53156D0080004D33A8 /* UIImage+RoundedCorner.h */,
+				95714E54156D0080004D33A8 /* UIImage+RoundedCorner.m */,
+			);
+			name = "UIImage+Resize";
+			sourceTree = "<group>";
+		};
+		95714E57156D05BA004D33A8 /* UIImage+RotateAndResize */ = {
+			isa = PBXGroup;
+			children = (
+				95714E58156D05D2004D33A8 /* UIImage+RotateAndResize.h */,
+				95714E59156D05D2004D33A8 /* UIImage+RotateAndResize.m */,
+			);
+			name = "UIImage+RotateAndResize";
+			sourceTree = "<group>";
+		};
 		95EE4A96155273DE006EF619 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,6 +315,8 @@
 		95F7479415521E4900F70A49 /* Play2 */ = {
 			isa = PBXGroup;
 			children = (
+				95714E57156D05BA004D33A8 /* UIImage+RotateAndResize */,
+				95714E4D156D001B004D33A8 /* UIImage+Resize */,
 				9560D5071568E91900E2C4AD /* Countdown Timer */,
 				95EE4B2A155371C7006EF619 /* Models */,
 				95EE4B29155371A9006EF619 /* TableViewCells */,
@@ -477,6 +513,8 @@
 				95EE4B301553796A006EF619 /* PhotoDareGroupAlbumViewController.m in Sources */,
 				95E6B458156CC56F00EBBF50 /* PhotoUploadingCell.m in Sources */,
 				95E6B467156CDB1600EBBF50 /* CaregroupSelectionViewController.m in Sources */,
+				95714E50156D002E004D33A8 /* UIImage+Resize.m in Sources */,
+				95714E5A156D05D2004D33A8 /* UIImage+RotateAndResize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +523,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				95F747C515521E4900F70A49 /* Play2Tests.m in Sources */,
+				95714E55156D0080004D33A8 /* UIImage+Alpha.m in Sources */,
+				95714E56156D0080004D33A8 /* UIImage+RoundedCorner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

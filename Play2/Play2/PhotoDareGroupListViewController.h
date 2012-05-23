@@ -15,5 +15,5 @@
 
 @property (strong, nonatomic) NSArray *dareGroups;
 - (IBAction)photoButtonPressed:(id)sender;
-- (void)uploadImageToServer: (NSDictionary *)imageDictionary;
+- (void)uploadImageToServer: (NSURL *)imageUploadURL imageData:(NSDictionary *)imageDictionary;
 @end

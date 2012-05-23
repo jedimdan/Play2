@@ -10,6 +10,7 @@
 #import "DareGroup.h"
 #import "DGTableViewCell.h"
 #import "PhotoUploadingCell.h"
+#import "UIImage+RotateAndResize.h"
 
 @implementation PhotoDareGroupListViewController
 @synthesize dareGroups;
@@ -56,7 +57,6 @@
     [self presentModalViewController:picker animated:YES];
 }
 
-
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     [picker dismissModalViewControllerAnimated:YES];
@@ -75,33 +75,35 @@
         UIImageWriteToSavedPhotosAlbum(editedImage, nil, nil, nil);
     }
     
-    [self uploadImageToServer:info];
-}
-
-- (void)uploadImageToServer: (NSDictionary *)imageDictionary
-{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *cgName = [defaults stringForKey:@"cgName"];
-    UIImage *theImage = [imageDictionary objectForKey:UIImagePickerControllerOriginalImage];
-    NSData *imageData = UIImageJPEGRepresentation(theImage, 1.0);
-    NSString *imageDate = [[[imageDictionary objectForKey:@"UIImagePickerControllerMediaMetadata"]
-                                             objectForKey:@"{Exif}"]
-                                             objectForKey:@"DateTimeOriginal"];
-    
     NSString *serverURL = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"Play2ServerURL"];
     NSURL *imageUploadURL = [NSURL URLWithString:[serverURL stringByAppendingPathComponent:@"upload"]];
     
-    NSError *error;
-    NSString *photoUploadURL = [NSString stringWithContentsOfURL:imageUploadURL encoding:NSUTF8StringEncoding error:&error];
+    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:imageUploadURL] 
+                                       queue:[NSOperationQueue mainQueue] 
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                               NSString *imageUploadString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                               NSLog(@"URL is %@", imageUploadString);
+                               [self uploadImageToServer:[NSURL URLWithString:imageUploadString] imageData:info];
+                           }];
+}
+
+- (void)uploadImageToServer: (NSURL *)imageUploadURL imageData:(NSDictionary *)imageDictionary
+{
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *cgName = [defaults stringForKey:@"cgName"];
     
-    if ((!photoUploadURL) || (error))
-    {
-        NSLog(@"An error occurred in getting the upload URL: %@", [error localizedDescription]);
-        return;
-    }
+    UIImage *theImage = [imageDictionary objectForKey:UIImagePickerControllerOriginalImage];    
+    UIImage *resizedImage = [theImage imageByScalingToSize:CGSizeMake(1024, 768)];
+    NSData *imageData = UIImageJPEGRepresentation(resizedImage, 1.0);
+    NSString *imageDate = [[[imageDictionary objectForKey:@"UIImagePickerControllerMediaMetadata"]
+                                             objectForKey:@"{Exif}"]
+                                             objectForKey:@"DateTimeOriginal"];
+    NSString *imageFileName = [[[cgName stringByAppendingString:@" - "] stringByAppendingString:imageDate] stringByAppendingPathExtension:@"jpg"];
+
     
     //prepare the multipart request
-    NSMutableURLRequest *uploadRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:photoUploadURL]];
+    NSMutableURLRequest *uploadRequest = [NSMutableURLRequest requestWithURL:imageUploadURL];
     
     NSString *boundary = [NSString stringWithString:@"0xKhTmLbOuNdArY"];
     [uploadRequest setValue:[NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary] forHTTPHeaderField:@"Content-Type"];
@@ -109,17 +111,19 @@
     
     //prepare the multipart POST body
     NSMutableData *postBody = [NSMutableData data];
-    [postBody appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [postBody appendData:[@"Content-Disposition: form-data; name=\"cg_name\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    [postBody appendData:[cgName dataUsingEncoding:NSUTF8StringEncoding]];
-    [postBody appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [postBody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"image_file\"; filename=\"%@\"\r\n", @"testtest3.jpg"] dataUsingEncoding:NSUTF8StringEncoding]];
-    [postBody appendData:[@"Content-Type: image/jpeg\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    [postBody appendData:imageData];
-    [postBody appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [postBody appendData:[@"Content-Disposition: form-data; name=\"image_date\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    [postBody appendData:[imageDate dataUsingEncoding:NSUTF8StringEncoding]];
-    [postBody appendData:[[NSString stringWithFormat:@"\r\n--%@--\r \n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    @autoreleasepool {
+        [postBody appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+        [postBody appendData:[@"Content-Disposition: form-data; name=\"cg_name\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+        [postBody appendData:[cgName dataUsingEncoding:NSUTF8StringEncoding]];
+        [postBody appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+        [postBody appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"image_file\"; filename=\"%@\"\r\n", imageFileName] dataUsingEncoding:NSUTF8StringEncoding]];
+        [postBody appendData:[@"Content-Type: image/jpeg\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+        [postBody appendData:imageData];
+        [postBody appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+        [postBody appendData:[@"Content-Disposition: form-data; name=\"image_date\"\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+        [postBody appendData:[imageDate dataUsingEncoding:NSUTF8StringEncoding]];
+        [postBody appendData:[[NSString stringWithFormat:@"\r\n--%@--\r \n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    }
     
     uploadRequest.HTTPBody = postBody;
     
@@ -185,6 +189,13 @@
     
     //remove the cell
     [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationBottom];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    NSLog(@"Connection failed with %@. %@", [error localizedDescription], [error userInfo]);
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Failed" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    [alert show];
 }
 
 - (void)viewDidUnload

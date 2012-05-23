@@ -24,6 +24,8 @@ from google.appengine.ext import blobstore
 from google.appengine.ext.webapp import blobstore_handlers
 import djangoforms
 import logging
+from datetime import datetime
+from random import randrange
 
 jinja_environment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
@@ -44,24 +46,35 @@ class Play2BannerHandler(webapp2.RequestHandler):
 		self.response.headers['Cache-Control'] = 'public, max-age=1200'
 		self.response.out.write(json.dumps(banners, indent=4))
 
+class Photo(db.Model):
+	blob_key = blobstore.BlobReferenceProperty()
+	caregroup_name = db.StringProperty()
+	datetime_taken = db.DateTimeProperty()
+	approved = db.BooleanProperty(default=False)
+
+	def to_dict(self):
+		return_dict = dict([(p, getattr(self, p)) for p in self.properties()])
+		return_dict['id'] = self.key().id()
+		return return_dict
+
 class PhotoUploaderHandler(webapp2.RequestHandler):
 	def get(self):
-		upload_url = blobstore.create_upload_url('/upload/complete')
-		self.response.out.write(upload_url)
+		if randrange(1):
+			upload_url = blobstore.create_upload_url('/upload/complete')
+			self.response.out.write(upload_url)
+		else:
+			self.response.out.write('http://this.is.a.test.corrupted.url')
 
 class PhotoUploadCompleteHandler(blobstore_handlers.BlobstoreUploadHandler):
 	def post(self):
-		upload_files = self.get_uploads('image_file')  # 'file' is file upload field in the form
-		blob_info = upload_files[0]
-		logging.info(blob_info)
+		the_blob = self.get_uploads('image_file')[0]  # 'file' is file upload field in the form
 
-		args = self.request.arguments()
-		logging.info('lalala')
-		logging.info(args)
-
-		bod = self.request.body
-		logging.info('body')
-		logging.info(bod)
+		image_date_str = self.request.get('image_date')
+		# format from iOS is 2012:05:23 17:51:33
+		image_date = datetime.strptime(image_date_str, '%Y:%m:%d %H:%M:%S')
+		new_photo = Photo(blob_key=the_blob.key(), caregroup_name=self.request.get('cg_name'), datetime_taken=image_date)
+		
+		new_photo.put()
 
 class MapAnnotation(db.Model):
 	coords = db.GeoPtProperty()
