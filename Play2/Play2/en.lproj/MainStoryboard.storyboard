@@ -54,20 +54,21 @@
             </objects>
             <point key="canvasLocation" x="653" y="-138"/>
         </scene>
-        <!--View Controller - Matrix-->
+        <!--Matrix View Controller - Matrix-->
         <scene sceneID="L38-Zs-Wcv">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z4q-1c-4PW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="Qfy-69-ygE" sceneMemberID="viewController">
+                <viewController id="Qfy-69-ygE" customClass="MatrixViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HMM-jz-SLe">
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Matrix" image="117-todo.png" id="9p9-8V-dfT"/>
+                    <navigationItem key="navigationItem" id="O66-tK-EGu"/>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1091" y="-138"/>
+            <point key="canvasLocation" x="1345" y="-301"/>
         </scene>
         <!--Second View Controller - Second-->
         <scene sceneID="13">
@@ -147,14 +148,14 @@
                                 <connections>
                                     <outlet property="dareGroupName" destination="XfP-RB-q3P" id="CZH-7h-3i0"/>
                                     <outlet property="photoCount" destination="iAg-FP-DPF" id="VKd-Xo-EV2"/>
-                                    <segue destination="UDT-4o-Yie" kind="push" id="L8P-NH-JPY"/>
+                                    <segue destination="J1b-H1-Ife" kind="push" id="eJR-oo-jPI"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="UploadCell" id="5Qx-gr-jEZ" customClass="PhotoUploadingCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="UploadCell" id="5Qx-gr-jEZ" customClass="PhotoUploadingCell">
                                 <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="Fna-MR-FBx">
@@ -203,59 +204,20 @@
             </objects>
             <point key="canvasLocation" x="1587" y="438"/>
         </scene>
-        <!--Photo Dare Group Album View Controller-->
-        <scene sceneID="W81-RF-vAr">
+        <!--Photo Grid View Controller-->
+        <scene sceneID="fNO-Gk-AJZ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Z0z-44-uzk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="UDT-4o-Yie" customClass="PhotoDareGroupAlbumViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="FBb-Pe-nIg">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7cI-7H-nNR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="J1b-H1-Ife" customClass="PhotoGridViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FuY-Fq-Bn7">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PhotoDareGroupAlbumViewCell" rowHeight="80" id="noa-Y5-evX" customClass="PhotoDareGroupAlbumViewCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="80"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="BoR-0I-DVm">
-                                            <rect key="frame" x="8" y="5" width="70" height="70"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="SUa-ji-wnt">
-                                            <rect key="frame" x="86" y="5" width="70" height="70"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="CUn-Hu-DIA">
-                                            <rect key="frame" x="164" y="5" width="70" height="70"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="xem-EV-emL">
-                                            <rect key="frame" x="242" y="5" width="70" height="70"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                    </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                                <connections>
-                                    <outletCollection property="imageViews" destination="BoR-0I-DVm" id="xXF-D8-GFh"/>
-                                    <outletCollection property="imageViews" destination="SUa-ji-wnt" id="eOa-7V-WZ1"/>
-                                    <outletCollection property="imageViews" destination="CUn-Hu-DIA" id="BlN-7n-SNo"/>
-                                    <outletCollection property="imageViews" destination="xem-EV-emL" id="yfy-XE-7DE"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="UDT-4o-Yie" id="AXi-zj-Rz6"/>
-                            <outlet property="delegate" destination="UDT-4o-Yie" id="Kx3-5W-HCF"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="LUw-ce-t2h"/>
-                </tableViewController>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="LMp-vN-437"/>
+                </viewController>
             </objects>
-            <point key="canvasLocation" x="2057" y="438"/>
+            <point key="canvasLocation" x="2043" y="438"/>
         </scene>
         <!--Caregroup Selection View Controller-->
         <scene sceneID="l12-bn-f8M">
@@ -322,8 +284,8 @@
                     <connections>
                         <segue destination="2" kind="relationship" relationship="viewControllers" id="26"/>
                         <segue destination="3" kind="relationship" relationship="viewControllers" id="27"/>
-                        <segue destination="Qfy-69-ygE" kind="relationship" relationship="viewControllers" id="Hyp-ka-hX2"/>
                         <segue destination="7L6-ft-tzH" kind="relationship" relationship="viewControllers" id="YQA-Wl-dg9"/>
+                        <segue destination="Qfy-69-ygE" kind="relationship" relationship="viewControllers" id="Hyp-ka-hX2"/>
                     </connections>
                 </tabBarController>
             </objects>
@@ -361,20 +323,20 @@
                 <relationship kind="outlet" name="loadingSpinner" candidateClass="UIActivityIndicatorView"/>
             </relationships>
         </class>
-        <class className="PhotoDareGroupAlbumViewCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoDareGroupAlbumViewCell.h"/>
-            <relationships>
-                <relationship kind="outletCollection" name="imageViews" candidateClass="UIImageView"/>
-            </relationships>
+        <class className="KKGridViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/KKGridViewController.h"/>
         </class>
-        <class className="PhotoDareGroupAlbumViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoDareGroupAlbumViewController.h"/>
+        <class className="MatrixViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatrixViewController.h"/>
         </class>
         <class className="PhotoDareGroupListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoDareGroupListViewController.h"/>
             <relationships>
                 <relationship kind="action" name="photoButtonPressed:"/>
             </relationships>
+        </class>
+        <class className="PhotoGridViewController" superclassName="KKGridViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoGridViewController.h"/>
         </class>
         <class className="PhotoUploadingCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PhotoUploadingCell.h"/>

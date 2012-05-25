@@ -21,6 +21,13 @@
 		9560D52B156C7F5400E2C4AD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9560D52A156C7F5400E2C4AD /* MobileCoreServices.framework */; };
 		95714E5A156D05D2004D33A8 /* UIImage+RotateAndResize.m in Sources */ = {isa = PBXBuildFile; fileRef = 95714E59156D05D2004D33A8 /* UIImage+RotateAndResize.m */; };
 		95714E5D156D3865004D33A8 /* PhotoUploadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95714E5C156D3865004D33A8 /* PhotoUploadController.m */; };
+		95B06F29156E219C009F74E9 /* libKKGridView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95B06F28156E219C009F74E9 /* libKKGridView.a */; };
+		95B06F2C156E221E009F74E9 /* PhotoGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B06F2B156E221E009F74E9 /* PhotoGridViewController.m */; };
+		95B06F33156E2759009F74E9 /* MWPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 95B06F32156E2759009F74E9 /* MWPhotoBrowser.bundle */; };
+		95B06F44156E2898009F74E9 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95B06F43156E2898009F74E9 /* ImageIO.framework */; };
+		95B06F47156E2E29009F74E9 /* MatrixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B06F46156E2E29009F74E9 /* MatrixViewController.m */; };
+		95B06F4C156E32B8009F74E9 /* libMWPhotoBrowser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95B06F4B156E32B8009F74E9 /* libMWPhotoBrowser.a */; };
+		95B06F4E156E350F009F74E9 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95B06F4D156E350F009F74E9 /* MessageUI.framework */; };
 		95E6B458156CC56F00EBBF50 /* PhotoUploadingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E6B457156CC56F00EBBF50 /* PhotoUploadingCell.m */; };
 		95E6B45B156CCFB400EBBF50 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 95E6B45A156CCFB400EBBF50 /* Settings.bundle */; };
 		95E6B467156CDB1600EBBF50 /* CaregroupSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E6B466156CDB1500EBBF50 /* CaregroupSelectionViewController.m */; };
@@ -38,7 +45,6 @@
 		95EE4B181552E5F8006EF619 /* PhotoDareGroupListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EE4B171552E5F8006EF619 /* PhotoDareGroupListViewController.m */; };
 		95EE4B1B1552E698006EF619 /* DareGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EE4B1A1552E698006EF619 /* DareGroup.m */; };
 		95EE4B2D15537221006EF619 /* PhotoDareGroupAlbumViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EE4B2C15537221006EF619 /* PhotoDareGroupAlbumViewCell.m */; };
-		95EE4B301553796A006EF619 /* PhotoDareGroupAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EE4B2F15537969006EF619 /* PhotoDareGroupAlbumViewController.m */; };
 		95EE4B3715537C1D006EF619 /* IMG_1339.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 95EE4B3115537C1D006EF619 /* IMG_1339.JPG */; };
 		95EE4B3815537C1D006EF619 /* IMG_1357.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 95EE4B3215537C1D006EF619 /* IMG_1357.JPG */; };
 		95EE4B3915537C1D006EF619 /* IMG_1359.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 95EE4B3315537C1D006EF619 /* IMG_1359.jpg */; };
@@ -88,6 +94,15 @@
 		95714E59156D05D2004D33A8 /* UIImage+RotateAndResize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RotateAndResize.m"; sourceTree = "<group>"; };
 		95714E5B156D3865004D33A8 /* PhotoUploadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoUploadController.h; sourceTree = "<group>"; };
 		95714E5C156D3865004D33A8 /* PhotoUploadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoUploadController.m; sourceTree = "<group>"; };
+		95B06F28156E219C009F74E9 /* libKKGridView.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libKKGridView.a; path = "KKGridView/build/Release-iphoneos/libKKGridView.a"; sourceTree = "<group>"; };
+		95B06F2A156E221E009F74E9 /* PhotoGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoGridViewController.h; sourceTree = "<group>"; };
+		95B06F2B156E221E009F74E9 /* PhotoGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoGridViewController.m; sourceTree = "<group>"; };
+		95B06F32156E2759009F74E9 /* MWPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = MWPhotoBrowser.bundle; path = MWPhotoBrowser/MWPhotoBrowser/MWPhotoBrowser.bundle; sourceTree = "<group>"; };
+		95B06F43156E2898009F74E9 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		95B06F45156E2E29009F74E9 /* MatrixViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatrixViewController.h; sourceTree = "<group>"; };
+		95B06F46156E2E29009F74E9 /* MatrixViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatrixViewController.m; sourceTree = "<group>"; };
+		95B06F4B156E32B8009F74E9 /* libMWPhotoBrowser.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libMWPhotoBrowser.a; path = "MWPhotoBrowser/MWPhotoBrowser/build/Release-iphoneos/libMWPhotoBrowser.a"; sourceTree = "<group>"; };
+		95B06F4D156E350F009F74E9 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		95E6B456156CC56F00EBBF50 /* PhotoUploadingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoUploadingCell.h; sourceTree = "<group>"; };
 		95E6B457156CC56F00EBBF50 /* PhotoUploadingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoUploadingCell.m; sourceTree = "<group>"; };
 		95E6B45A156CCFB400EBBF50 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -113,8 +128,6 @@
 		95EE4B1A1552E698006EF619 /* DareGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DareGroup.m; sourceTree = "<group>"; };
 		95EE4B2B15537221006EF619 /* PhotoDareGroupAlbumViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDareGroupAlbumViewCell.h; sourceTree = "<group>"; };
 		95EE4B2C15537221006EF619 /* PhotoDareGroupAlbumViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDareGroupAlbumViewCell.m; sourceTree = "<group>"; };
-		95EE4B2E15537969006EF619 /* PhotoDareGroupAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDareGroupAlbumViewController.h; sourceTree = "<group>"; };
-		95EE4B2F15537969006EF619 /* PhotoDareGroupAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDareGroupAlbumViewController.m; sourceTree = "<group>"; };
 		95EE4B3115537C1D006EF619 /* IMG_1339.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1339.JPG; sourceTree = "<group>"; };
 		95EE4B3215537C1D006EF619 /* IMG_1357.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1357.JPG; sourceTree = "<group>"; };
 		95EE4B3315537C1D006EF619 /* IMG_1359.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_1359.jpg; sourceTree = "<group>"; };
@@ -149,6 +162,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95B06F4E156E350F009F74E9 /* MessageUI.framework in Frameworks */,
+				95B06F4C156E32B8009F74E9 /* libMWPhotoBrowser.a in Frameworks */,
+				95B06F29156E219C009F74E9 /* libKKGridView.a in Frameworks */,
+				95B06F44156E2898009F74E9 /* ImageIO.framework in Frameworks */,
 				95EE4AFA1552D466006EF619 /* CoreLocation.framework in Frameworks */,
 				95EE4AF81552D288006EF619 /* MapKit.framework in Frameworks */,
 				95F7478F15521E4900F70A49 /* UIKit.framework in Frameworks */,
@@ -215,7 +232,6 @@
 				95EE4B111552DF7C006EF619 /* 117-todo.png */,
 				95EE4AEA15527A85006EF619 /* play2_banner_420px.png */,
 				95EE4AEC15527C10006EF619 /* banner_placeholder.png */,
-				95F747A015521E4900F70A49 /* MainStoryboard.storyboard */,
 				9560D5091568E95B00E2C4AD /* css */,
 			);
 			name = Resources;
@@ -261,6 +277,9 @@
 		95F7477F15521E4900F70A49 = {
 			isa = PBXGroup;
 			children = (
+				95B06F4D156E350F009F74E9 /* MessageUI.framework */,
+				95B06F43156E2898009F74E9 /* ImageIO.framework */,
+				95B06F32156E2759009F74E9 /* MWPhotoBrowser.bundle */,
 				95E6B45A156CCFB400EBBF50 /* Settings.bundle */,
 				95EE4A96155273DE006EF619 /* Resources */,
 				95F7479415521E4900F70A49 /* Play2 */,
@@ -282,6 +301,8 @@
 		95F7478D15521E4900F70A49 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				95B06F4B156E32B8009F74E9 /* libMWPhotoBrowser.a */,
+				95B06F28156E219C009F74E9 /* libKKGridView.a */,
 				9560D52A156C7F5400E2C4AD /* MobileCoreServices.framework */,
 				95EE4AF91552D466006EF619 /* CoreLocation.framework */,
 				95EE4AF71552D288006EF619 /* MapKit.framework */,
@@ -296,6 +317,7 @@
 		95F7479415521E4900F70A49 /* Play2 */ = {
 			isa = PBXGroup;
 			children = (
+				95F747A015521E4900F70A49 /* MainStoryboard.storyboard */,
 				95714E57156D05BA004D33A8 /* UIImage+RotateAndResize */,
 				9560D5071568E91900E2C4AD /* Countdown Timer */,
 				95EE4B2A155371C7006EF619 /* Models */,
@@ -311,12 +333,14 @@
 				95EE4AF3155283DA006EF619 /* CountdownTimerController.m */,
 				95EE4B161552E5F7006EF619 /* PhotoDareGroupListViewController.h */,
 				95EE4B171552E5F8006EF619 /* PhotoDareGroupListViewController.m */,
-				95EE4B2E15537969006EF619 /* PhotoDareGroupAlbumViewController.h */,
-				95EE4B2F15537969006EF619 /* PhotoDareGroupAlbumViewController.m */,
 				95E6B465156CDB1500EBBF50 /* CaregroupSelectionViewController.h */,
 				95E6B466156CDB1500EBBF50 /* CaregroupSelectionViewController.m */,
 				95714E5B156D3865004D33A8 /* PhotoUploadController.h */,
 				95714E5C156D3865004D33A8 /* PhotoUploadController.m */,
+				95B06F2A156E221E009F74E9 /* PhotoGridViewController.h */,
+				95B06F2B156E221E009F74E9 /* PhotoGridViewController.m */,
+				95B06F45156E2E29009F74E9 /* MatrixViewController.h */,
+				95B06F46156E2E29009F74E9 /* MatrixViewController.m */,
 			);
 			path = Play2;
 			sourceTree = "<group>";
@@ -424,6 +448,7 @@
 			files = (
 				95F7479915521E4900F70A49 /* InfoPlist.strings in Resources */,
 				95F747A215521E4900F70A49 /* MainStoryboard.storyboard in Resources */,
+				95B06F33156E2759009F74E9 /* MWPhotoBrowser.bundle in Resources */,
 				95EE4AEB15527A85006EF619 /* play2_banner_420px.png in Resources */,
 				95EE4AED15527C10006EF619 /* banner_placeholder.png in Resources */,
 				95EE4B0C1552DED1006EF619 /* 103-map.png in Resources */,
@@ -492,11 +517,12 @@
 				95EE4B181552E5F8006EF619 /* PhotoDareGroupListViewController.m in Sources */,
 				95EE4B1B1552E698006EF619 /* DareGroup.m in Sources */,
 				95EE4B2D15537221006EF619 /* PhotoDareGroupAlbumViewCell.m in Sources */,
-				95EE4B301553796A006EF619 /* PhotoDareGroupAlbumViewController.m in Sources */,
 				95E6B458156CC56F00EBBF50 /* PhotoUploadingCell.m in Sources */,
 				95E6B467156CDB1600EBBF50 /* CaregroupSelectionViewController.m in Sources */,
 				95714E5A156D05D2004D33A8 /* UIImage+RotateAndResize.m in Sources */,
 				95714E5D156D3865004D33A8 /* PhotoUploadController.m in Sources */,
+				95B06F2C156E221E009F74E9 /* PhotoGridViewController.m in Sources */,
+				95B06F47156E2E29009F74E9 /* MatrixViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,7 +559,6 @@
 				95F747A115521E4900F70A49 /* en */,
 			);
 			name = MainStoryboard.storyboard;
-			path = Play2;
 			sourceTree = "<group>";
 		};
 		95F747C015521E4900F70A49 /* InfoPlist.strings */ = {
@@ -550,7 +575,7 @@
 		95F747C615521E4900F70A49 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Jun Kit Lee (T54C8LZ68B)";
@@ -572,13 +597,15 @@
 				PROVISIONING_PROFILE = "DAF0AF91-AF29-4BEF-86DA-016B65B46851";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DAF0AF91-AF29-4BEF-86DA-016B65B46851";
 				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "";
 			};
 			name = Debug;
 		};
 		95F747C715521E4900F70A49 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Jun Kit Lee (T54C8LZ68B)";
@@ -594,6 +621,7 @@
 				PROVISIONING_PROFILE = "DAF0AF91-AF29-4BEF-86DA-016B65B46851";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DAF0AF91-AF29-4BEF-86DA-016B65B46851";
 				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -603,8 +631,12 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Play2/Play2-Prefix.pch";
+				HEADER_SEARCH_PATHS = "MWPhotoBrowser/MWPhotoBrowser/**";
 				INFOPLIST_FILE = "Play2/Play2-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)\"/**";
+				"USER_HEADER_SEARCH_PATHS[arch=*]" = "\"$(BUILT_PRODUCTS_DIR)\"/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -614,8 +646,11 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Play2/Play2-Prefix.pch";
+				HEADER_SEARCH_PATHS = "MWPhotoBrowser/MWPhotoBrowser/**";
 				INFOPLIST_FILE = "Play2/Play2-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"$(BUILT_PRODUCTS_DIR)\"/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

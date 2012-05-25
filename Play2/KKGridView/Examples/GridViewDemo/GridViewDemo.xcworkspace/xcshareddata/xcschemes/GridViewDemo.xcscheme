@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0430"
+   LastUpgradeVersion = "0440"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4C6F96C314AF704100F8389A"
-               BuildableName = "libMWPhotoBrowser.a"
-               BlueprintName = "MWPhotoBrowser"
-               ReferencedContainer = "container:MWPhotoBrowser/MWPhotoBrowser/MWPhotoBrowser.xcodeproj">
+               BlueprintIdentifier = "1A61BE0E13DCAF1F00AB4243"
+               BuildableName = "libKKGridView.a"
+               BlueprintName = "KKGridView"
+               ReferencedContainer = "container:../../KKGridView.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -28,10 +28,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "95F7478915521E4900F70A49"
-               BuildableName = "Play2.app"
-               BlueprintName = "Play2"
-               ReferencedContainer = "container:Play2.xcodeproj">
+               BlueprintIdentifier = "1A530A2813DE962700E6C60B"
+               BuildableName = "GridViewDemo.app"
+               BlueprintName = "GridViewDemo"
+               ReferencedContainer = "container:GridViewDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -42,30 +42,20 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "95F747B515521E4900F70A49"
-               BuildableName = "Play2Tests.octest"
-               BlueprintName = "Play2Tests"
-               ReferencedContainer = "container:Play2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "95F7478915521E4900F70A49"
-            BuildableName = "Play2.app"
-            BlueprintName = "Play2"
-            ReferencedContainer = "container:Play2.xcodeproj">
+            BlueprintIdentifier = "1A530A2813DE962700E6C60B"
+            BuildableName = "GridViewDemo.app"
+            BlueprintName = "GridViewDemo"
+            ReferencedContainer = "container:GridViewDemo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
-      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.GDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Debug"
@@ -75,10 +65,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "95F7478915521E4900F70A49"
-            BuildableName = "Play2.app"
-            BlueprintName = "Play2"
-            ReferencedContainer = "container:Play2.xcodeproj">
+            BlueprintIdentifier = "1A530A2813DE962700E6C60B"
+            BuildableName = "GridViewDemo.app"
+            BlueprintName = "GridViewDemo"
+            ReferencedContainer = "container:GridViewDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -93,10 +83,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "95F7478915521E4900F70A49"
-            BuildableName = "Play2.app"
-            BlueprintName = "Play2"
-            ReferencedContainer = "container:Play2.xcodeproj">
+            BlueprintIdentifier = "1A530A2813DE962700E6C60B"
+            BuildableName = "GridViewDemo.app"
+            BlueprintName = "GridViewDemo"
+            ReferencedContainer = "container:GridViewDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
