@@ -21,6 +21,7 @@
 		9560D52B156C7F5400E2C4AD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9560D52A156C7F5400E2C4AD /* MobileCoreServices.framework */; };
 		95714E5A156D05D2004D33A8 /* UIImage+RotateAndResize.m in Sources */ = {isa = PBXBuildFile; fileRef = 95714E59156D05D2004D33A8 /* UIImage+RotateAndResize.m */; };
 		95714E5D156D3865004D33A8 /* PhotoUploadController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95714E5C156D3865004D33A8 /* PhotoUploadController.m */; };
+		95A63D71156F947300076C55 /* Play2Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 95A63D70156F947300076C55 /* Play2Photo.m */; };
 		95B06F29156E219C009F74E9 /* libKKGridView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95B06F28156E219C009F74E9 /* libKKGridView.a */; };
 		95B06F2C156E221E009F74E9 /* PhotoGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B06F2B156E221E009F74E9 /* PhotoGridViewController.m */; };
 		95B06F33156E2759009F74E9 /* MWPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 95B06F32156E2759009F74E9 /* MWPhotoBrowser.bundle */; };
@@ -94,14 +95,16 @@
 		95714E59156D05D2004D33A8 /* UIImage+RotateAndResize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RotateAndResize.m"; sourceTree = "<group>"; };
 		95714E5B156D3865004D33A8 /* PhotoUploadController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoUploadController.h; sourceTree = "<group>"; };
 		95714E5C156D3865004D33A8 /* PhotoUploadController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoUploadController.m; sourceTree = "<group>"; };
-		95B06F28156E219C009F74E9 /* libKKGridView.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libKKGridView.a; path = "KKGridView/build/Release-iphoneos/libKKGridView.a"; sourceTree = "<group>"; };
+		95A63D6F156F947300076C55 /* Play2Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Play2Photo.h; sourceTree = "<group>"; };
+		95A63D70156F947300076C55 /* Play2Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Play2Photo.m; sourceTree = "<group>"; };
+		95B06F28156E219C009F74E9 /* libKKGridView.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKKGridView.a; path = "KKGridView/build/Release-iphoneos/libKKGridView.a"; sourceTree = "<group>"; };
 		95B06F2A156E221E009F74E9 /* PhotoGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoGridViewController.h; sourceTree = "<group>"; };
 		95B06F2B156E221E009F74E9 /* PhotoGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoGridViewController.m; sourceTree = "<group>"; };
 		95B06F32156E2759009F74E9 /* MWPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = MWPhotoBrowser.bundle; path = MWPhotoBrowser/MWPhotoBrowser/MWPhotoBrowser.bundle; sourceTree = "<group>"; };
 		95B06F43156E2898009F74E9 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		95B06F45156E2E29009F74E9 /* MatrixViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatrixViewController.h; sourceTree = "<group>"; };
 		95B06F46156E2E29009F74E9 /* MatrixViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatrixViewController.m; sourceTree = "<group>"; };
-		95B06F4B156E32B8009F74E9 /* libMWPhotoBrowser.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libMWPhotoBrowser.a; path = "MWPhotoBrowser/MWPhotoBrowser/build/Release-iphoneos/libMWPhotoBrowser.a"; sourceTree = "<group>"; };
+		95B06F4B156E32B8009F74E9 /* libMWPhotoBrowser.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMWPhotoBrowser.a; path = "MWPhotoBrowser/MWPhotoBrowser/build/Release-iphoneos/libMWPhotoBrowser.a"; sourceTree = "<group>"; };
 		95B06F4D156E350F009F74E9 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		95E6B456156CC56F00EBBF50 /* PhotoUploadingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoUploadingCell.h; sourceTree = "<group>"; };
 		95E6B457156CC56F00EBBF50 /* PhotoUploadingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoUploadingCell.m; sourceTree = "<group>"; };
@@ -257,6 +260,8 @@
 				95EE4AFC1552D652006EF619 /* Play2Place.m */,
 				95EE4B191552E698006EF619 /* DareGroup.h */,
 				95EE4B1A1552E698006EF619 /* DareGroup.m */,
+				95A63D6F156F947300076C55 /* Play2Photo.h */,
+				95A63D70156F947300076C55 /* Play2Photo.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -523,6 +528,7 @@
 				95714E5D156D3865004D33A8 /* PhotoUploadController.m in Sources */,
 				95B06F2C156E221E009F74E9 /* PhotoGridViewController.m in Sources */,
 				95B06F47156E2E29009F74E9 /* MatrixViewController.m in Sources */,
+				95A63D71156F947300076C55 /* Play2Photo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

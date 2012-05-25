@@ -44,7 +44,7 @@ routes = [
 	('/upload', photos.PhotoUploaderHandler),
 	('/upload/complete', photos.PhotoUploadCompleteHandler),
 	('/photos', photos.PhotoListHandler),
-	webapp2.Route('/photos/serve/<resource:(\w|-|_)+>', handler=photos.PhotoServeHandler, name='photo-serve-handler')
+	webapp2.Route('/photos/<resource:(\w|-|_)+>/serve', handler=photos.PhotoServeHandler, name='photo-serve-handler')
 ]
 
 app = webapp2.WSGIApplication(routes, debug=True)

@@ -7,9 +7,11 @@
 //
 
 #import <KKGridView/KKGridViewController.h>
+#import "MWPhotoBrowser.h"
 
-@interface PhotoGridViewController : KKGridViewController {
+@interface PhotoGridViewController : KKGridViewController <MWPhotoBrowserDelegate> {
     NSArray *images;
+    MWPhotoBrowser *photoBrowser;
 }
 
 @end

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MWPhotoBrowser.h"
 
-@interface MatrixViewController : UIViewController <MWPhotoBrowserDelegate> {
+@interface MatrixViewController : UIViewController {
     NSMutableArray *photos;
 }
 

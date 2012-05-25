@@ -1,6 +1,7 @@
 from google.appengine.ext import db
 from google.appengine.ext import blobstore
 from google.appengine.ext.webapp import blobstore_handlers
+from google.appengine.api import images
 from datetime import datetime
 from random import randrange
 import webapp2
@@ -55,11 +56,8 @@ class PhotoListHandler(webapp2.RequestHandler):
 	def modify_photos_dict_to_include_blob_url(self, photos_dict):
 		blobkey = photos_dict['blob_key'].key()
 		del photos_dict['blob_key']
-		photos_dict['blob_serving_url'] = self.blob_url_for_blobkey(blobkey)
+		photos_dict['blob_serving_url'] = images.get_serving_url(blobkey)
 		return photos_dict
-
-	def blob_url_for_blobkey(self, blobkey):
-		return self.uri_for('photo-serve-handler', resource=blobkey, _full=True)
 
 class PhotoServeHandler(blobstore_handlers.BlobstoreDownloadHandler):
 	def get(self, resource):
